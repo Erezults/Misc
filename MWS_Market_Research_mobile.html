@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0A0E27">
+<title>MWS EO Market Research - Rafael Advanced Defense Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Helvetica,Arial,sans-serif;background:#0A0E27;color:#e0e6ed;line-height:1.6;overflow:hidden;-webkit-tap-highlight-color:transparent}
+#progress-bar{position:fixed;top:0;left:0;height:5px;background:linear-gradient(90deg,#00AAFF,#00DDFF);z-index:1000;transition:width 0.3s}
+.slide{min-height:calc(100vh - 55px);padding:20px 16px;padding-bottom:30px;display:none;flex-direction:column;position:relative;overflow-y:auto;max-height:calc(100vh - 55px);-webkit-overflow-scrolling:touch;animation:fadeIn 0.4s ease}
+.slide.active{display:flex}
+@keyframes fadeIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInReverse{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+.slide.active.from-left{animation:fadeInReverse 0.4s ease}
+h1{font-size:1.6em;font-weight:700;background:linear-gradient(135deg,#00AAFF,#00DDFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px}
+h2{font-size:1.3em;color:#00AAFF;margin-bottom:14px;border-bottom:2px solid rgba(0,170,255,0.3);padding-bottom:6px}
+h3{font-size:1.1em;color:#00DDFF;margin:12px 0 6px}
+h4{font-size:1em;color:#88bbdd;margin:8px 0 4px}
+p,li{font-size:0.9em;color:#c8d6e5;margin-bottom:5px}
+ul{padding-left:18px}
+li{margin-bottom:3px}
+.subtitle{font-size:1em;color:#8899aa;margin-bottom:8px}
+.highlight{color:#00DDFF;font-weight:600}
+.accent{color:#00AAFF}
+.warn{color:#ff6b6b}
+.grid2,.grid3,.grid4{display:grid;grid-template-columns:1fr;gap:15px;margin-top:12px}
+.card{background:rgba(0,170,255,0.05);border:1px solid rgba(0,170,255,0.15);border-radius:10px;padding:12px;transition:border-color 0.3s}
+.card:hover{border-color:rgba(0,170,255,0.4)}
+.card h3{margin-top:0}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0;border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:0.82em;min-width:320px}
+th{background:rgba(0,170,255,0.15);color:#00DDFF;padding:8px 10px;text-align:left;font-weight:600;border-bottom:2px solid rgba(0,170,255,0.3);white-space:nowrap}
+td{padding:6px 10px;border-bottom:1px solid rgba(0,170,255,0.1);color:#c8d6e5}
+tr:hover td{background:rgba(0,170,255,0.05)}
+.bar-chart{margin:8px 0}
+.bar-row{display:flex;align-items:center;margin:5px 0}
+.bar-label{width:100px;font-size:0.8em;color:#aabbcc;flex-shrink:0}
+.bar-track{flex:1;height:20px;background:rgba(0,170,255,0.08);border-radius:4px;overflow:hidden;margin:0 8px}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#00AAFF,#00DDFF);transition:width 1s ease}
+.bar-value{width:55px;font-size:0.8em;color:#00DDFF;text-align:right;flex-shrink:0}
+.tag{display:inline-block;padding:3px 8px;border-radius:12px;font-size:0.75em;margin:2px;border:1px solid}
+.tag-green{color:#00cc88;border-color:#00cc8844;background:rgba(0,204,136,0.1)}
+.tag-blue{color:#00AAFF;border-color:#00AAFF44;background:rgba(0,170,255,0.1)}
+.tag-red{color:#ff6b6b;border-color:#ff6b6b44;background:rgba(255,107,107,0.1)}
+.tag-yellow{color:#ffcc00;border-color:#ffcc0044;background:rgba(255,204,0,0.1)}
+.stat-box{text-align:center;padding:12px}
+.stat-num{font-size:1.6em;font-weight:700;color:#00DDFF}
+.stat-label{font-size:0.75em;color:#8899aa;margin-top:3px}
+.swot-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.swot-card{padding:12px;border-radius:8px}
+.swot-s{background:rgba(0,204,136,0.1);border:1px solid rgba(0,204,136,0.3)}
+.swot-w{background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3)}
+.swot-o{background:rgba(0,170,255,0.1);border:1px solid rgba(0,170,255,0.3)}
+.swot-t{background:rgba(255,204,0,0.1);border:1px solid rgba(255,204,0,0.3)}
+.timeline{position:relative;padding-left:25px;border-left:2px solid rgba(0,170,255,0.3)}
+.timeline-item{margin-bottom:16px;position:relative}
+.timeline-item::before{content:'';position:absolute;left:-30px;top:5px;width:10px;height:10px;border-radius:50%;background:#00AAFF}
+.phase-header{font-size:1em;color:#00DDFF;font-weight:600}
+.kpi-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.kpi{flex:1;min-width:80px;background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.2);border-radius:8px;padding:10px;text-align:center}
+.kpi .num{font-size:1.3em;font-weight:700;color:#00DDFF}
+.kpi .label{font-size:0.68em;color:#8899aa}
+.title-slide{text-align:center;align-items:center;justify-content:center;background:linear-gradient(135deg,#0A0E27 0%,#0d1942 50%,#0a1a3a 100%)}
+.title-slide h1{font-size:1.8em}
+.logo-text{font-size:1em;color:#00AAFF;letter-spacing:2px;margin-bottom:20px;font-weight:300}
+.small{font-size:0.78em;color:#8899aa}
+
+/* Bottom navigation bar */
+#bottom-nav{position:fixed;bottom:0;left:0;right:0;height:50px;background:rgba(10,14,39,0.95);border-top:1px solid rgba(0,170,255,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 8px;z-index:1001;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#bottom-nav button{background:none;border:1px solid rgba(0,170,255,0.3);color:#00AAFF;font-size:14px;padding:8px 16px;border-radius:8px;cursor:pointer;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
+#bottom-nav button:active{background:rgba(0,170,255,0.2);border-color:#00AAFF}
+#bottom-nav .slide-counter-bottom{font-size:13px;color:#8899aa;min-width:60px;text-align:center}
+#menu-btn{font-size:20px;letter-spacing:-1px}
+
+/* Slide menu overlay */
+#slide-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,14,39,0.97);z-index:2000;display:none;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 16px 70px}
+#slide-menu.open{display:flex}
+#slide-menu .menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+#slide-menu .menu-header h3{color:#00DDFF;font-size:1.1em}
+#slide-menu .close-btn{background:none;border:1px solid rgba(0,170,255,0.3);color:#00AAFF;font-size:18px;width:44px;height:44px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#slide-menu .close-btn:active{background:rgba(0,170,255,0.2)}
+#slide-menu .menu-item{padding:12px 14px;border-bottom:1px solid rgba(0,170,255,0.1);color:#c8d6e5;font-size:0.9em;cursor:pointer;min-height:44px;display:flex;align-items:center;transition:background 0.2s;border-radius:6px}
+#slide-menu .menu-item:active{background:rgba(0,170,255,0.15)}
+#slide-menu .menu-item.active{color:#00DDFF;background:rgba(0,170,255,0.1);border-left:3px solid #00AAFF}
+#slide-menu .menu-item .num{color:#00AAFF;margin-right:12px;font-weight:600;min-width:24px}
+
+/* Swipe visual feedback */
+#swipe-indicator{position:fixed;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,170,255,0.3);z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s}
+#swipe-indicator.left{left:10px}
+#swipe-indicator.right{right:10px}
+#swipe-indicator.visible{opacity:1}
+
+/* Desktop overrides */
+@media(min-width:768px){
+  body{overflow-x:hidden}
+  .slide{padding:60px 80px;max-height:calc(100vh - 55px)}
+  h1{font-size:2.8em}
+  h2{font-size:2em;margin-bottom:18px;padding-bottom:8px}
+  h3{font-size:1.3em;margin:15px 0 8px}
+  h4{font-size:1.1em;margin:10px 0 5px}
+  p,li{font-size:0.95em;margin-bottom:6px}
+  .grid2{grid-template-columns:1fr 1fr;gap:25px}
+  .grid3{grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .grid4{grid-template-columns:1fr 1fr 1fr 1fr;gap:15px}
+  .card{padding:18px}
+  .bar-label{width:160px;font-size:0.85em}
+  .bar-value{font-size:0.85em}
+  .stat-num{font-size:2.2em}
+  .kpi{min-width:120px;padding:12px}
+  .kpi .num{font-size:1.6em}
+  .swot-grid{grid-template-columns:1fr 1fr}
+  .title-slide h1{font-size:3.2em}
+  .logo-text{font-size:1.4em;letter-spacing:3px;margin-bottom:30px}
+  #progress-bar{height:4px}
+  #bottom-nav{height:50px}
+  table{font-size:0.88em}
+  th{padding:10px 12px}
+  td{padding:8px 12px}
+}
+@media print{.slide{display:flex!important;page-break-after:always;min-height:auto;padding:30px;max-height:none;overflow:visible}#progress-bar,#bottom-nav,#slide-menu,#swipe-indicator{display:none!important}}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- Swipe visual feedback indicators -->
+<div id="swipe-indicator" class="left"></div>
+<div id="swipe-indicator-r" style="position:fixed;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,170,255,0.3);z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s;right:10px"></div>
+
+<!-- Slide Menu Overlay -->
+<div id="slide-menu">
+<div class="menu-header">
+<h3>Slides</h3>
+<button class="close-btn" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+</div>
+<div id="menu-items"></div>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div id="bottom-nav">
+<button id="menu-btn" onclick="openMenu()" aria-label="Slide menu">&#9776;</button>
+<button id="prev-btn" onclick="showSlide(current-1)" aria-label="Previous slide">&#9664; Prev</button>
+<div class="slide-counter-bottom" id="slide-counter">1 / 25</div>
+<button id="next-btn" onclick="showSlide(current+1)" aria-label="Next slide">Next &#9654;</button>
+</div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide active title-slide" id="s1" data-title="Title">
+<div class="logo-text">RAFAEL ADVANCED DEFENSE SYSTEMS</div>
+<h1>Electro-Optical Missile Warning Systems</h1>
+<p class="subtitle" style="font-size:1.1em;color:#88bbdd;margin-top:12px">Market Research & Strategic Analysis</p>
+<p style="color:#667788;margin-top:20px;font-size:0.95em">Electro-Optics & Sensors Division &bull; March 2026</p>
+<p style="color:#556677;margin-top:6px;font-size:0.82em">Internal Strategy Document &bull; Confidential</p>
+</div>
+
+<!-- SLIDE 2: Executive Summary -->
+<div class="slide" id="s2" data-title="Executive Summary">
+<h2>Executive Summary</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="num">$7.7B</div><div class="label">Global MWS Market (2025)</div></div>
+<div class="kpi"><div class="num">$12.5B</div><div class="label">Projected 2035</div></div>
+<div class="kpi"><div class="num">4.9%</div><div class="label">CAGR</div></div>
+<div class="kpi"><div class="num">$1.6-2.3B</div><div class="label">MAW Sub-Market (2025)</div></div>
+<div class="kpi"><div class="num">$3.0-4.0B</div><div class="label">MAW Projected 2035</div></div>
+</div>
+<div class="grid2" style="margin-top:15px">
+<div class="card">
+<h3>Key Findings</h3>
+<ul>
+<li>MAW sub-segment growing at <span class="highlight">5.5%-7.1% CAGR</span></li>
+<li>Adjacent DIRCM market: <span class="highlight">$3.76-5.17B</span> (2024), growing 7-11% CAGR</li>
+<li>Market at technology inflection: UV &rarr; MWIR/Multi-Spectral with AI/ML</li>
+<li>BAE Systems (CMWS) and Elbit (PAWS/C-MUSIC) dominate with multi-thousand unit installed bases</li>
+<li>Geopolitical drivers accelerating procurement cycles globally</li>
+</ul>
+</div>
+<div class="card">
+<h3>Strategic Conclusions for Rafael</h3>
+<ul>
+<li>Fastest-growing segments: <span class="highlight">UAVs</span> (no dominant supplier), <span class="highlight">naval</span>, <span class="highlight">ground vehicles</span></li>
+<li>ITAR-free positioning is a structural advantage for non-US markets</li>
+<li>Rafael's EO/IR IP (Litening, Sea Spotter, Sky Spotter, Sky Shield) provides credible tech foundation</li>
+<li>Primary gap: dedicated, certifiable, standalone MWS product with DIRCM cueing output</li>
+<li>3-5% MAW market share by 2030 = <span class="highlight">$84-140M annual revenue</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 3: Market Size & Segmentation -->
+<div class="slide" id="s3" data-title="Market Size & Segmentation">
+<h2>Market Size & Segmentation</h2>
+<div class="grid2">
+<div>
+<h3>Broad MWS Market</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Source</th><th>2025</th><th>Target</th><th>CAGR</th></tr>
+<tr><td>WiseGuy / HTF</td><td>$7.73B</td><td>$12.5B (2035)</td><td>4.9%</td></tr>
+<tr><td>Cognitive Market</td><td>$7.5B</td><td>$10.9B (2033)</td><td>5.3%</td></tr>
+<tr><td>LP Information</td><td>$27.5B</td><td>$43.0B (2032)</td><td>6.7%</td></tr>
+</table>
+</div>
+<h3>MAW Sub-Market (Airborne Passive Sensors)</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Source</th><th>2025</th><th>Target</th><th>CAGR</th></tr>
+<tr><td>Fortune BI</td><td>$1.57B</td><td>$2.97B (2034)</td><td>7.1%</td></tr>
+<tr><td>MRFR</td><td>$2.33B</td><td>$3.97B (2035)</td><td>5.48%</td></tr>
+<tr><td>Growth Market</td><td>$1.42B</td><td>$2.81B (2033)</td><td>6.9%</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>Segmentation by Platform</h3>
+<div class="bar-chart">
+<div class="bar-row"><span class="bar-label">Airborne</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="bar-value">65-70%</span></div>
+<div class="bar-row"><span class="bar-label">Naval</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-value">15-20%</span></div>
+<div class="bar-row"><span class="bar-label">Ground Vehicle</span><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div><span class="bar-value">10-15%</span></div>
+<div class="bar-row"><span class="bar-label">UAV</span><div class="bar-track"><div class="bar-fill" style="width:7%;background:linear-gradient(90deg,#00cc88,#00ffaa)"></div></div><span class="bar-value">5-8%</span></div>
+</div>
+<h3 style="margin-top:14px">DIRCM Adjacent Market</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Source</th><th>2024</th><th>Target</th><th>CAGR</th></tr>
+<tr><td>Fortune BI</td><td>$3.76B</td><td>$5.81B (2034)</td><td>~4.5%</td></tr>
+<tr><td>MRFR</td><td>$1.63B</td><td>$4.12B (2033)</td><td>10.9%</td></tr>
+<tr><td>DataIntelo</td><td>$5.17B</td><td>$9.8B (2030)</td><td>7.2%</td></tr>
+</table>
+</div>
+<p class="small" style="margin-top:6px">Counter-UAV market: $4.93B (2025) &rarr; $36.4B by 2035 (22.1% CAGR) signals threat environment</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 4: Market Share & Tier Structure -->
+<div class="slide" id="s4" data-title="Market Share & Tier Structure">
+<h2>Market Share & Tier Structure</h2>
+<div class="grid2">
+<div>
+<h3>Revenue Market Share (New Production, 2024-2026)</h3>
+<div class="bar-chart">
+<div class="bar-row"><span class="bar-label">BAE Systems</span><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><span class="bar-value">30-35%</span></div>
+<div class="bar-row"><span class="bar-label">Elbit Systems</span><div class="bar-track"><div class="bar-fill" style="width:23%"></div></div><span class="bar-value">20-25%</span></div>
+<div class="bar-row"><span class="bar-label">Northrop Grumman</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-value">15-20%</span></div>
+<div class="bar-row"><span class="bar-label">Hensoldt</span><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><span class="bar-value">10-12%</span></div>
+<div class="bar-row"><span class="bar-label">Thales</span><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><span class="bar-value">5-8%</span></div>
+<div class="bar-row"><span class="bar-label">Saab</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-value">4-6%</span></div>
+<div class="bar-row"><span class="bar-label">Others</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#667788,#8899aa)"></div></div><span class="bar-value">5-10%</span></div>
+</div>
+</div>
+<div>
+<h3>4-Tier Competitive Structure</h3>
+<div class="card" style="margin-bottom:10px;border-color:rgba(0,204,136,0.4)">
+<h4 style="color:#00cc88">Tier 1: Market Leaders</h4>
+<p>BAE Systems, Elbit Systems, Northrop Grumman</p>
+<p class="small">Full-spectrum suite (MWS + DIRCM), dominant US/NATO base, 100,000+ operational hours</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-color:rgba(0,170,255,0.4)">
+<h4 style="color:#00AAFF">Tier 2: Strong Regional Players</h4>
+<p>Hensoldt, Thales, Saab</p>
+<p class="small">Strong European installed base, specialized capabilities, government-backed</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,204,0,0.4)">
+<h4 style="color:#ffcc00">Tier 3: Emerging / Niche</h4>
+<p>Aselsan, L3Harris (AAR-47), Exosens</p>
+<p class="small">National champions, growing export ambitions, narrower product scope</p>
+</div>
+<div class="card" style="border-color:rgba(255,107,107,0.4)">
+<h4 style="color:#ff6b6b">Tier 4: Potential Entrant</h4>
+<p>Rafael Advanced Defense Systems</p>
+<p class="small">Strong EO/IR capability, proven combat systems, lacks dedicated standalone MWS product</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 5: Geographic Analysis -->
+<div class="slide" id="s5" data-title="Geographic Analysis">
+<h2>Geographic Analysis</h2>
+<div class="grid2">
+<div>
+<h3>Regional Market Share</h3>
+<div class="bar-chart">
+<div class="bar-row"><span class="bar-label">North America</span><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><span class="bar-value">37-45%</span></div>
+<div class="bar-row"><span class="bar-label">Europe</span><div class="bar-track"><div class="bar-fill" style="width:23%"></div></div><span class="bar-value">20-25%</span></div>
+<div class="bar-row"><span class="bar-label">Asia-Pacific</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#00cc88,#00ffaa)"></div></div><span class="bar-value">20-30%</span></div>
+<div class="bar-row"><span class="bar-label">Middle East</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-value">5-10%</span></div>
+</div>
+<p class="small" style="margin-top:5px"><span class="tag tag-green">Fastest Growing</span> Asia-Pacific at 8.7% CAGR through 2030</p>
+<h3 style="margin-top:14px">Global Defense Spending (2025)</h3>
+<div class="table-wrap">
+<table>
+<tr><td>Global Total</td><td class="highlight">$2.63 Trillion</td></tr>
+<tr><td>US FY2026</td><td>~$895B (+$21B EW over 5yr)</td></tr>
+<tr><td>India</td><td>$79B (5th largest)</td></tr>
+<tr><td>Saudi Arabia</td><td>$78B</td></tr>
+<tr><td>Israel</td><td>$37B (elevated)</td></tr>
+<tr><td>Europe YoY growth</td><td>+12.6%, 21% of global</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>North America (~37-45%)</h3>
+<p>US DoD single largest buyer. CMWS >3,000 units, LAIRCM >1,500 aircraft. FMS to 20+ nations. Rafael limited by ITAR/Buy American.</p>
+<h3>Europe (~20-25%)</h3>
+<p>Defense spending +12.6% (2025). Hensoldt MILDS >7,000 sensors. Elbit C-MUSIC $150M+ contracts. EU seeking ITAR-free alternatives under EDF/EDIP. Key: Germany, UK, Poland, Nordics.</p>
+<h3>Asia-Pacific (~20-30%) <span class="tag tag-green">Fastest Growing</span></h3>
+<p>India: 156 LCH Prachand, Su-30MKI EW upgrade, $79B budget. S. Korea: Huneed/KAI deliveries. Elbit $80M APAC DIRCM + $275M helicopter (2026). Australia seeking diverse supply.</p>
+<h3>Middle East (~5-10%)</h3>
+<p>High avg contract value. Qatar $86M LAIRCM FMS. Elbit C-MUSIC on IAF C-130H. UAE/Saudi open to Israeli alternatives. <span class="highlight">Rafael advantage</span>: existing MoD relationships, ITAR-free credentials.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 6: Key Contracts & Programs -->
+<div class="slide" id="s6" data-title="Key Contracts & Programs">
+<h2>Key Contracts & Programs (2023-2026)</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Date</th><th>Vendor</th><th>Customer</th><th>Program</th><th>Value</th><th>Details</th></tr>
+<tr><td>Feb 2026</td><td>BAE Systems</td><td>US Army FMS</td><td>CMWS</td><td class="highlight">$137M</td><td>Apache/Chinook/Black Hawk for 20+ nations</td></tr>
+<tr><td>Feb 2024</td><td>BAE Systems</td><td>US Army FMS</td><td>CMWS</td><td class="highlight">$114M</td><td>Multiple allied nation deliveries</td></tr>
+<tr><td>Oct 2024</td><td>BAE Systems</td><td>US Army</td><td>2CAWS</td><td>-</td><td>400 units delivered (ML-powered next-gen)</td></tr>
+<tr><td>Jan 2026</td><td>Elbit</td><td>Asia-Pacific</td><td>Helicopter EW+DIRCM</td><td class="highlight">$275M</td><td>5-year program, nation undisclosed</td></tr>
+<tr><td>Jul 2025</td><td>Elbit</td><td>German AF</td><td>J-MUSIC A400M</td><td class="highlight">$260M</td><td>23 aircraft, 6-year program</td></tr>
+<tr><td>Jan 2026</td><td>Elbit</td><td>European</td><td>DIRCM</td><td class="highlight">~$150M</td><td>NATO transport aircraft</td></tr>
+<tr><td>2024</td><td>Elbit</td><td>Asia-Pacific</td><td>C-MUSIC/IR-PAWS</td><td class="highlight">$80M</td><td>Multiple aircraft types</td></tr>
+<tr><td>Aug 2025</td><td>Elbit</td><td>Israel IAF</td><td>F-16I EW suite</td><td class="highlight">$80M</td><td>Advanced self-protection</td></tr>
+<tr><td>-</td><td>Northrop</td><td>USAF</td><td>LAIRCM</td><td class="highlight">$3.6B</td><td>Multi-year USAF (largest single award)</td></tr>
+<tr><td>-</td><td>Northrop</td><td>USAF/USMC</td><td>LAIRCM</td><td class="highlight">$334M</td><td>Large-scale delivery</td></tr>
+<tr><td>-</td><td>Northrop</td><td>US Navy</td><td>DoN LAIRCM</td><td class="highlight">$115M</td><td>Shipboard adaptation</td></tr>
+<tr><td>Dec 2024</td><td>Northrop</td><td>Qatar FMS</td><td>AN/AAQ-24</td><td class="highlight">$86M</td><td>Two systems for Qatar</td></tr>
+<tr><td>Jul-Aug 2025</td><td>Northrop</td><td>US Army</td><td>ATHENA ITDS Phase II</td><td>-</td><td>Next-gen US Army MWS candidate</td></tr>
+</table>
+</div>
+<div class="grid3" style="margin-top:12px">
+<div class="card"><h4>Pipeline Programs</h4>
+<ul><li>US Army FLRAA (V-280 Valor) - MWS/DIRCM to be competed</li><li>India LCH Prachand (156 units) - MWS upgrade path open</li><li>India Su-30MKI EW upgrade (DAC cleared Dec 2024)</li></ul></div>
+<div class="card"><h4>Pipeline (cont.)</h4>
+<ul><li>European A400M fleet DIRCM/MWS integration</li><li>UAE/Saudi helicopter fleet protection</li><li>NATO Eastern Flank reinforcement (Poland, Romania, Baltics)</li></ul></div>
+<div class="card"><h4>Key Observation</h4>
+<p>Elbit winning the largest single contracts globally ($260M + $275M). BAE maintains volume via FMS continuity. Northrop ITDS Phase II win could reshape US Army market post-2029.</p></div>
+</div>
+</div>
+
+<!-- SLIDE 7: BAE Systems Deep-Dive -->
+<div class="slide" id="s7" data-title="BAE Systems Deep-Dive">
+<h2>BAE Systems Deep-Dive</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="num">15-20K+</div><div class="label">Sensors in Service</div></div>
+<div class="kpi"><div class="num">30-35%</div><div class="label">Revenue Share</div></div>
+<div class="kpi"><div class="num">20+</div><div class="label">FMS Nations</div></div>
+<div class="kpi"><div class="num">400</div><div class="label">2CAWS Delivered (2024)</div></div>
+</div>
+<div class="grid2">
+<div>
+<h3>Products</h3>
+<h4>AN/AAR-57 CMWS</h4>
+<ul>
+<li>UV solar-blind passive imaging, 5 sensor heads per aircraft</li>
+<li>Capabilities: missile warning, HFI, data recording, DIRCM cueing</li>
+<li>Compatible with AN/ALQ-212 ATIRCM and CIRCM</li>
+<li>Platforms: AH-64 Apache, CH-47 Chinook, UH-60 Black Hawk</li>
+<li>Installed on virtually entire US Army rotary-wing fleet</li>
+</ul>
+<h4>2CAWS (Two-Color Advanced Warning System)</h4>
+<ul>
+<li>Two-color infrared (MWIR), fiber optic A-kit backbone</li>
+<li>Machine learning algorithms for threat discrimination</li>
+<li>Open system processor, increased range vs. CMWS</li>
+<li>400 units delivered Oct 2024 (Black Hawk, Chinook, Apache)</li>
+</ul>
+<h4>Recent Contracts</h4>
+<div class="table-wrap">
+<table>
+<tr><td>Feb 2026</td><td>$137M CMWS FMS</td></tr>
+<tr><td>Feb 2024</td><td>$114M CMWS FMS</td></tr>
+<tr><td>Ongoing</td><td>&pound;15.25M UK MoD CMWS support</td></tr>
+<tr><td>2024</td><td>CMWS + Leonardo Miysis interop approved</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>Strengths</h3>
+<ul>
+<li><span class="tag tag-green">Dominant</span> US Army incumbent; CMWS is default NATO helo standard</li>
+<li>Strong FMS pipeline covering 20+ nations</li>
+<li>2CAWS already fielded - ML-powered next-gen product</li>
+<li>Deep integration with US Army survivability architecture</li>
+<li>Massive sustainment/logistics revenue from installed base</li>
+</ul>
+<h3>Weaknesses</h3>
+<ul>
+<li><span class="tag tag-red">Aging</span> CMWS UV technology vulnerable to next-gen IR competition</li>
+<li>US-centric: FMS restrictions limit agility in non-allied markets</li>
+<li>Lost ITDS Phase II to Northrop ATHENA - future roadmap uncertain</li>
+<li>Limited naval/ground vehicle MWS portfolio</li>
+</ul>
+<h3>Competitive Implication</h3>
+<p>BAE's lock on US Army + FMS is formidable near-term. But UV-based CMWS aging creates displacement opportunity for MWIR-based solutions in non-US markets. ITDS Phase II loss signals potential US Army platform shift post-2029.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 8: Elbit Systems Deep-Dive -->
+<div class="slide" id="s8" data-title="Elbit Systems Deep-Dive">
+<h2>Elbit Systems Deep-Dive</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="num">3-5K</div><div class="label">Sensors in Service</div></div>
+<div class="kpi"><div class="num">20-25%</div><div class="label">Revenue Share</div></div>
+<div class="kpi"><div class="num">300K+</div><div class="label">Operational Flight Hours</div></div>
+<div class="kpi"><div class="num">25+</div><div class="label">Aircraft Types</div></div>
+</div>
+<div class="grid2">
+<div>
+<h3>Product Family</h3>
+<h4>PAWS-2 (HR) - Paris Air Show June 2025</h4>
+<ul>
+<li>Cooled MWIR sensor, <span class="highlight">&gt;5 megapixels</span></li>
+<li>Very high sampling rate for RPG/ATGM/small arms detection</li>
+<li>Advanced AI/ML discrimination, extremely low FAR</li>
+<li>All missile types: SAM, AAM, MANPADS + RPG, ATGM, small arms</li>
+<li>Time-to-Impact (TTI) calculation, high angular accuracy</li>
+</ul>
+<h4>DIRCM Family: MUSIC, J-MUSIC, Mini-MUSIC, C-MUSIC</h4>
+<ul>
+<li>Fiber laser + high-frame-rate thermal tracker + sealed mirror turret</li>
+<li>Open architecture, NATO-certified</li>
+<li>Complete MWS + DIRCM sold as integrated package</li>
+</ul>
+<h4>Key Contracts</h4>
+<div class="table-wrap">
+<table>
+<tr><td>Jul 2025</td><td>$260M German A400M J-MUSIC</td></tr>
+<tr><td>Jan 2026</td><td>$275M Asia-Pacific helicopter</td></tr>
+<tr><td>Jan 2026</td><td>~$150M European DIRCM</td></tr>
+<tr><td>2024</td><td>$80M Asia-Pacific DIRCM</td></tr>
+<tr><td>Aug 2025</td><td>$80M Israel F-16I EW suite</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>Strengths</h3>
+<ul>
+<li><span class="tag tag-green">Most Advanced</span> MWS technology (PAWS-2 HR - 5MP cooled MWIR)</li>
+<li>Complete suite: MWS + DIRCM competitive advantage in integrated bids</li>
+<li>Proven combat record (IAF operational use, 300,000+ hours)</li>
+<li>Strong European penetration (Germany, Italy, Netherlands, NATO)</li>
+<li>Asia-Pacific growth trajectory - major contracts 2022-2026</li>
+</ul>
+<h3>Weaknesses</h3>
+<ul>
+<li>Israeli nationality creates friction in some markets (Arab states, Turkey)</li>
+<li>ITAR-equivalent Israeli export controls limit some sales</li>
+<li>Highly dependent on Israeli MoD for domestic demand</li>
+<li>US Army market effectively closed (BAE/Northrop incumbency)</li>
+</ul>
+<h3>Competitive Implication</h3>
+<p><span class="warn">Primary competitor for Rafael</span> in non-US markets. Elbit's success with C-MUSIC in Europe and APAC demonstrates Israeli ITAR-free MWS/DIRCM wins in markets theoretically served by BAE CMWS.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 9: Northrop Grumman Deep-Dive -->
+<div class="slide" id="s9" data-title="Northrop Grumman Deep-Dive">
+<h2>Northrop Grumman Deep-Dive</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="num">1,500+</div><div class="label">Aircraft Equipped</div></div>
+<div class="kpi"><div class="num">80+</div><div class="label">Platform Types</div></div>
+<div class="kpi"><div class="num">15-20%</div><div class="label">Revenue Share</div></div>
+<div class="kpi"><div class="num">$3.6B</div><div class="label">Largest LAIRCM Award</div></div>
+</div>
+<div class="grid2">
+<div>
+<h3>Products</h3>
+<h4>AN/AAR-54 Passive MWS</h4>
+<ul><li>UV passive imaging, lightweight/compact/multi-platform</li><li>Detects, tracks, classifies threats as lethal/non-lethal</li><li>Customers: US SOCOM, UK, Netherlands, Portugal, Germany, Australia</li></ul>
+<h4>LAIRCM (AN/AAQ-24)</h4>
+<ul><li>Complete DIRCM suite: AAR-54 MWS + processor + Small Laser Transmitter Assembly</li><li>Platforms: C-17, MC-130, CV-22 Osprey, CH-53E, P-8A, KC-135</li><li>Automatically detects, tracks, and jams IR-guided missiles</li></ul>
+<h4>CIRCM (Common IRCM)</h4>
+<ul><li>Lighter next-gen replacing ATIRCM; 500+ shipsets delivered, 30,000+ flight hours</li><li>Integrates with CMWS (BAE) or LIMWS</li></ul>
+<h4>ATHENA (ITDS Phase II)</h4>
+<ul><li>Advanced 2-color IR sensor; Phase II approved Jul-Aug 2025</li><li>51+ hours flight/live-fire tested; residual capability target 2029</li><li><span class="highlight">Likely next US Army standard MWS</span></li></ul>
+</div>
+<div>
+<h3>Key Contracts</h3>
+<div class="table-wrap">
+<table>
+<tr><td>Multi-year</td><td>$3.6B USAF LAIRCM</td></tr>
+<tr><td>-</td><td>$334M LAIRCM delivery</td></tr>
+<tr><td>-</td><td>$115M US Navy DoN LAIRCM</td></tr>
+<tr><td>Dec 2024</td><td>$86M Qatar FMS</td></tr>
+<tr><td>Jan 2024</td><td>$16.5M KC-135 Gen 3 pods</td></tr>
+</table>
+</div>
+<h3>Strengths</h3>
+<ul>
+<li>ITDS Phase II - poised to become new US Army standard MWS</li>
+<li>Massive LAIRCM installed base (recurring revenue)</li>
+<li>Controls both sensor and countermeasure layers</li>
+<li>ATHENA 2-color IR is genuine next-gen advancement</li>
+</ul>
+<h3>Weaknesses</h3>
+<ul>
+<li>UV-based AAR-54 is aging technology</li>
+<li>Limited international market reach (US DoD-centric)</li>
+<li>Not a standalone MWS vendor - sensor embedded in DIRCM suite</li>
+<li>FMS restrictions and political complexity for exports</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 10: Hensoldt Deep-Dive -->
+<div class="slide" id="s10" data-title="Hensoldt Deep-Dive">
+<h2>Hensoldt Deep-Dive</h2>
+<div class="kpi-row">
+<div class="kpi"><div class="num">7,000+</div><div class="label">MILDS Sensors Sold</div></div>
+<div class="kpi"><div class="num">10-12%</div><div class="label">Revenue Share</div></div>
+<div class="kpi"><div class="num">20+</div><div class="label">Platform Types</div></div>
+<div class="kpi"><div class="num">258</div><div class="label">S. Korea Delivery</div></div>
+</div>
+<div class="grid2">
+<div>
+<h3>Products</h3>
+<h4>MILDS AN/AAR-60 (Block 1 & Block 2)</h4>
+<ul><li>Passive UV solar-blind imaging, high spatial resolution</li><li>Block 2: HFI-capable, in-sensor data recording, enhanced processing</li><li><span class="highlight">NATO standard</span> for European helicopter fleets</li></ul>
+<h4>MILDS-F (Fighter Variant)</h4>
+<ul><li>Belgian, Danish, Norwegian, Dutch F-16 fleets</li><li>Compact, low-drag sensor heads optimized for fighters</li></ul>
+<h4>MACS (Missile Approach Confirmation Sensor)</h4>
+<ul><li>Active radar-based confirmation - determines missile distance/speed/TTI</li><li>Activates only when cued by MILDS (maintains stealth)</li><li><span class="highlight">Unique capability</span> - eliminates false alarms via active confirmation</li></ul>
+<h4>MUSS 2.0 (Ground Vehicle)</h4>
+<ul><li>Four passive IR/UV sensor heads, 360 degrees protection</li><li>Laser warning + smoke dispenser cueing</li><li>Fielded on German Puma IFV</li></ul>
+</div>
+<div>
+<h3>Customer Base</h3>
+<p>Platforms: NH90, Tiger, CH-53, Cougar, Puma, EC635, EC645, CH-47, UH-60, EH101, A129, C-130, P-3C, C-27J, C-295, A340, B747+</p>
+<p>Countries: Germany, Belgium, Denmark, Norway, Netherlands, S. Korea (258 sensors via Huneed), Ukraine (2024), Australia, UK, Portugal, Saudi Arabia, Turkey</p>
+<h3>Strengths</h3>
+<ul>
+<li>Largest installed base in Europe; strong sustainment revenue</li>
+<li>MACS active confirmation is unique differentiator</li>
+<li>Strong European government relationships (OCCAR, German MoD)</li>
+<li>Fighter aircraft experience (most competitors lack this)</li>
+<li>MUSS provides ground vehicle entry point</li>
+</ul>
+<h3>Weaknesses</h3>
+<ul>
+<li><span class="tag tag-red">Aging</span> UV technology relative to MWIR competitors</li>
+<li>Limited US market access</li>
+<li>Smaller R&D budget than Tier 1</li>
+<li>Potential L3Harris merger uncertainty</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 11: Other Competitors -->
+<div class="slide" id="s11" data-title="Other Competitors">
+<h2>Other Competitors</h2>
+<div class="grid2">
+<div class="card">
+<h3>Thales (France/UK)</h3>
+<h4>Products: Elix-IR, MIRAS</h4>
+<ul>
+<li>Elix-IR: Passive MWIR multi-function (MWS + HFI + imagery) from single sensor head</li>
+<li>360 degrees spherical coverage, airframe-mounted and podded</li>
+<li>MIRAS: Multi-color IR, band subtraction algorithms, <span class="highlight">naval application</span></li>
+<li>Leonardo/Thales joint trial: 100% interception rate with Miysis DIRCM</li>
+<li><span class="tag tag-yellow">Setback</span> Lost German A400M to Elbit (Jul 2025)</li>
+</ul>
+<p class="small">Customer: UK MoD (RAF Shadow R1). Revenue share: ~5-8%</p>
+</div>
+<div class="card">
+<h3>Saab (Sweden)</h3>
+<h4>Products: MAW-300, IDAS, CIDAS, IDAS-310</h4>
+<ul>
+<li>MAW-300: UV-based with unique optical design, photon-counting FPA</li>
+<li>IDAS: Complete EW suite (UV MAW + RWR + LWS + CMDS)</li>
+<li>IDAS-310 (2024): Upgraded controller, AI-enhanced signal processing</li>
+<li>CAMPS: Civil Aircraft Missile Protection System (unique segment)</li>
+<li>Customers: Sweden (Gripen), South Africa, India (HAL Dhruv)</li>
+</ul>
+<p class="small">Revenue share: ~4-6%. No MWIR product, no DIRCM - must partner.</p>
+</div>
+<div class="card">
+<h3>Aselsan (Turkey)</h3>
+<h4>Products: YILDIRIM-100, YILDIRIM-300 (dev)</h4>
+<ul>
+<li>YILDIRIM-100: Laser-based DIRCM, twin-turret, 360 degrees hemispherical</li>
+<li>Multi-band synchronized laser beams, open architecture</li>
+<li>Passed live-fire tests Jul 2025 against IR-guided missiles</li>
+<li>YILDIRIM-300 for KAAN 5th-gen fighter (in development)</li>
+<li><span class="tag tag-yellow">No confirmed export customers</span> as of early 2026</li>
+</ul>
+<p class="small">National champion for Turkey. DIRCM-focused, unclear standalone MWS capability.</p>
+</div>
+<div class="card">
+<h3>Other Players</h3>
+<h4>L3Harris (AN/AAR-47)</h4>
+<ul><li>2,000-4,000 sensors in service (legacy Gen 1/2)</li><li>HFI software upgrade path</li></ul>
+<h4>Leonardo</h4>
+<ul><li>Miysis DIRCM - partners with Thales (Elix-IR) and BAE (CMWS)</li><li>CMWS + Miysis interop approved 2024</li></ul>
+<h4>Exosens</h4>
+<ul><li>UV missile warning solution components</li></ul>
+<h4>Huneed Technologies (S. Korea)</h4>
+<ul><li>258 MILDS sensors for KUH/MUH helicopters via Hensoldt</li></ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 12: Technology Landscape -->
+<div class="slide" id="s12" data-title="Technology Landscape">
+<h2>Technology Landscape: UV vs MWIR vs Multi-Spectral</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Attribute</th><th>UV Solar-Blind</th><th>Cooled MWIR</th><th>Uncooled MWIR</th><th>Multi-Spectral</th></tr>
+<tr><td>NETD</td><td>N/A (photon)</td><td>8-25 mK</td><td>30-50 mK</td><td>8-25 mK (MWIR ch.)</td></tr>
+<tr><td>False Alarm Rate</td><td class="highlight">Very Low</td><td>Moderate-High</td><td>High</td><td class="highlight">Low</td></tr>
+<tr><td>Detection Range (MANPADS)</td><td>3-5 km</td><td class="highlight">5-8 km</td><td>2-4 km</td><td class="highlight">5-8 km</td></tr>
+<tr><td>Post-Burnout Detection</td><td class="warn">No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>RPG/Hostile Fire</td><td class="warn">No</td><td>Yes (high-res)</td><td>Limited</td><td>Yes</td></tr>
+<tr><td>SWaP</td><td class="highlight">Low</td><td>Moderate (HOT improving)</td><td class="highlight">Very Low</td><td>Moderate-High</td></tr>
+<tr><td>MTBF</td><td>High</td><td>Moderate (cooler limited)</td><td class="highlight">Very High</td><td>Moderate</td></tr>
+<tr><td>Cost</td><td class="highlight">Low</td><td>High</td><td>Low-Moderate</td><td>High</td></tr>
+<tr><td>Market Trend</td><td class="warn">Mature/declining</td><td class="highlight">Growing (HOT)</td><td>Niche (UAV)</td><td class="highlight">Dominant direction</td></tr>
+</table>
+</div>
+<div class="grid3" style="margin-top:15px">
+<div class="card">
+<h3>Detection Range by Threat</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Threat</th><th>Cooled MWIR</th><th>UV</th></tr>
+<tr><td>MANPADS (boost)</td><td>5-8 km</td><td>3-5 km</td></tr>
+<tr><td>SAM (medium alt.)</td><td>&gt;10 km</td><td>5-8 km</td></tr>
+<tr><td>AAM</td><td>4-8 km</td><td>2-4 km</td></tr>
+<tr><td>RPG</td><td>&lt;500m</td><td>N/A</td></tr>
+<tr><td>ATGM</td><td>1-3 km</td><td>N/A</td></tr>
+<tr><td>Anti-ship</td><td>5-20 km</td><td>5-10 km</td></tr>
+</table>
+</div>
+</div>
+<div class="card">
+<h3>Technology Generations</h3>
+<p><strong>Gen 1 (Legacy):</strong> UV, analog, high FAR. AN/AAR-47</p>
+<p><strong>Gen 2 (Current):</strong> UV digital, HFI, near-zero FAR. CMWS, MILDS Block 2, AAR-54, MAW-300</p>
+<p><strong>Gen 3 (Advanced):</strong> MWIR cooled, AI/ML, multi-function. 2CAWS, PAWS-2 HR, Elix-IR</p>
+<p><strong>Gen 4 (Emerging 2027+):</strong> High-res uncooled MWIR, multi-sensor fusion, autonomous classification &gt;95%, edge AI. US Army ITDS (ATHENA)</p>
+</div>
+<div class="card">
+<h3>Key Insight</h3>
+<p>Market migrating <strong>UV &rarr; MWIR</strong> in 2024-2028. Two-color MWIR + ML achieves <span class="highlight">&lt;1 false alarm/flight hour</span> vs. 2-10/hr for single-band. This is a <strong>hard architectural requirement</strong> for any new entrant.</p>
+<p style="margin-top:8px">Rafael cannot achieve market-competitive FAR without two-color/multi-spectral + ML. Design from start for MWIR + AI architecture.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 13: AI/ML & Processing -->
+<div class="slide" id="s13" data-title="AI/ML & Processing Trends">
+<h2>AI/ML & Advanced Processing Trends</h2>
+<div class="grid2">
+<div>
+<h3>State of the Art (2024-2026)</h3>
+<ul>
+<li><strong>BAE 2CAWS:</strong> ML algorithms for complex high-clutter environments; field-updatable software</li>
+<li><strong>Elbit PAWS-2:</strong> Advanced image processing for extremely low FAR in cluttered environments</li>
+<li><strong>Northrop:</strong> ML-based false-track-reduction for Space Force SBIRS/OPIR; transferable to airborne</li>
+<li><strong>MDA:</strong> RFI (Oct 2025) for next-gen Advanced Object Classification algorithms</li>
+<li><strong>Research:</strong> TiOx memristor arrays for real-time missile identification (2026, Wiley)</li>
+<li><strong>Fraunhofer (2025):</strong> Improved multi-spectral processing for harsh clutter environments</li>
+</ul>
+<h3>Key AI/ML Applications</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Application</th><th>Description</th></tr>
+<tr><td>Threat Classification</td><td>CNNs on MWIR image sequences distinguish plumes from false sources (glint, exhaust, flares)</td></tr>
+<tr><td>Track Initiation</td><td>ML reduces time to confirmed detection while suppressing single-frame false positives</td></tr>
+<tr><td>Threat Typing</td><td>Classify MANPADS vs SAM vs AAM vs RPG by spectral/kinematic signatures</td></tr>
+<tr><td>Sensor Fusion</td><td>Multi-head DAS fusion, handle partial occlusion, coherent air picture</td></tr>
+<tr><td>Continuous Learning</td><td>OTA model updates; adapt to new threat variants without hardware change</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>Processing Architecture Trends</h3>
+<div class="card" style="margin-bottom:12px">
+<h4>Edge AI Processing</h4>
+<p>FPGA + NPU co-processing in single chip (Xilinx Versal, Intel Agilex). Real-time inference at &lt;15W. Eliminates separate processing box.</p>
+</div>
+<div class="card" style="margin-bottom:12px">
+<h4>Fiber Optic Backbone</h4>
+<p>BAE 2CAWS uses fiber optic A-kit replacing copper harnesses. Reduces weight, eliminates EMI coupling on electrically noisy rotorcraft.</p>
+</div>
+<div class="card" style="margin-bottom:12px">
+<h4>System-in-Package (SiP)</h4>
+<p>Detector ROIC + signal conditioning + digital output in single package. Reduces size and EMI.</p>
+</div>
+<h3>Rafael's ML Opportunity</h3>
+<ul>
+<li>Sky Spotter already incorporates AI-based image processing for multi-target detection in C-UAS domain - <span class="highlight">directly applicable heritage</span></li>
+<li>Challenge: adapt models from slow-moving drones to high-velocity missiles</li>
+<li><strong>Key gap:</strong> Labeled missile plume signature training dataset is the most defensible IP moat - harder to acquire than algorithms</li>
+<li>Needs IDF/IAF cooperation or international test range access</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 14: SWaP Analysis -->
+<div class="slide" id="s14" data-title="SWaP Analysis & Benchmarks">
+<h2>SWaP Analysis & Benchmarks</h2>
+<div class="grid2">
+<div>
+<h3>Competitor SWaP Benchmarks</h3>
+<div class="table-wrap">
+<table>
+<tr><th>System</th><th>Weight/Head</th><th>Power/Head</th><th>Type</th></tr>
+<tr><td>Hensoldt MILDS</td><td class="highlight">~0.7 kg</td><td>&lt;5 W</td><td>UV uncooled</td></tr>
+<tr><td>Elbit PAWS-2</td><td>~1.1 kg</td><td>~10 W</td><td>Cooled MWIR 5MP</td></tr>
+<tr><td>BAE 2CAWS</td><td>~1.3 kg</td><td>~12 W</td><td>Two-color IR</td></tr>
+<tr><td>Target (UAV)</td><td class="highlight">&lt;0.5 kg</td><td>&lt;5 W</td><td>HOT/uncooled hybrid</td></tr>
+</table>
+</div>
+<h3>NETD by Detector Type</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Detector</th><th>NETD</th><th>Notes</th></tr>
+<tr><td>Cooled InSb (77K)</td><td>8-15 mK</td><td>Mature, established</td></tr>
+<tr><td>Cooled MCT (77K)</td><td>10-20 mK</td><td>LWIR/VLWIR capable</td></tr>
+<tr><td>HOT InSb/XBn (&gt;110K)</td><td>15-25 mK</td><td>SCD Crane-class; SWaP advantage</td></tr>
+<tr><td>Uncooled microbolometer</td><td>30-50 mK</td><td>Improving ~5%/year</td></tr>
+</table>
+</div>
+<h3>MTBF Comparison</h3>
+<div class="table-wrap">
+<table>
+<tr><td>UV-based (no cooler)</td><td>&gt;10,000 hrs</td></tr>
+<tr><td>Legacy cooled (77K Stirling)</td><td>2,000-3,000 hrs</td></tr>
+<tr><td>HOT cooled (&gt;110K)</td><td>&gt;4,000 hrs (projected)</td></tr>
+<tr><td>Uncooled</td><td>&gt;10,000 hrs</td></tr>
+<tr><td>Market requirement</td><td class="highlight">&gt;3,000 hrs</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>SWaP Pressure by Platform</h3>
+<div class="card" style="margin-bottom:10px">
+<h4>Group 3 UAS (Shadow, Scan Eagle)</h4>
+<p>Payload: 20-50 kg. MWS budget: <span class="highlight">&lt;2 kg, &lt;15W</span> total system</p>
+</div>
+<div class="card" style="margin-bottom:10px">
+<h4>Group 4/5 UAS (Predator, Reaper, Heron)</h4>
+<p>Payload: 100-450 kg. Less SWaP-constrained but compact integration needed</p>
+</div>
+<div class="card" style="margin-bottom:10px">
+<h4>Light Helicopters (AH-6, OH-58, MD-500)</h4>
+<p>Minimal mounting options. 4-head system must total <span class="highlight">&lt;6 kg</span></p>
+</div>
+<h3>HOT Technology Breakthrough</h3>
+<p>SCD Crane 5M detector (2560x2048, 5&mu;m pitch) operates above 110K:</p>
+<ul>
+<li>Reduces cooler size by <span class="highlight">40-60%</span> vs. 77K Stirling</li>
+<li>SWaP levels previously only achievable by uncooled</li>
+<li>Rafael co-investor in SCD (NIS 2B MoD agreement, 2025)</li>
+<li>Privileged access ahead of international competitors</li>
+</ul>
+<h3>Acquisition Cost Benchmarks</h3>
+<div class="table-wrap">
+<table>
+<tr><th>System</th><th>Unit Cost (est.)</th></tr>
+<tr><td>AN/AAR-57 CMWS</td><td>$250-400K/aircraft</td></tr>
+<tr><td>BAE 2CAWS</td><td>$300-500K/aircraft</td></tr>
+<tr><td>Elbit PAWS-2</td><td>$150-350K</td></tr>
+<tr><td>Hensoldt MILDS</td><td>$200-350K/aircraft</td></tr>
+<tr><td>Full SPS (MWS+DIRCM)</td><td>$1.5-3M/aircraft</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 15: Customer Segments -->
+<div class="slide" id="s15" data-title="Customer Segments & Personas">
+<h2>Customer Segments & Personas</h2>
+<div class="grid3">
+<div class="card">
+<h3>A: Military Helicopter Operators</h3>
+<p class="tag tag-red">PRIMARY - Pain: HIGH</p>
+<p><strong>Platforms:</strong> UH-60, AH-64, CH-47, NH90, Tiger, Prachand LCH, Mi-17</p>
+<p><strong>Current:</strong> AN/AAR-57 CMWS, MILDS, PAWS/MUSIC</p>
+<p><strong>Persona:</strong> CW4 Mike Reyes, UH-60M pilot - 250+ hrs/yr, frustrated by false alarms in dusty/urban environments. Needs reliable warning with low cognitive burden.</p>
+<p><strong>Persona:</strong> LTC Sandra Park, Aviation PM - 80+ aircraft fleet, focused on MTBF, spares, lifecycle cost.</p>
+</div>
+<div class="card">
+<h3>B: Fixed-Wing Military Operators</h3>
+<p class="tag tag-yellow">Pain: MEDIUM-HIGH</p>
+<p><strong>Platforms:</strong> F-16, F/A-18, C-130, A-10, transport/ISR</p>
+<p><strong>Current:</strong> AN/AAR-47, PAWS-2, national solutions</p>
+<p><strong>Persona:</strong> Sqn Ldr Ahmed Al-Rashid, Gulf state F-16 - needs high Pd at 5-7 km, &lt;3 deg accuracy for DIRCM cueing, low desert clutter FAR.</p>
+<p><strong>Key:</strong> Israel IAF F-16I fleet locked by Elbit ($80M). Third-country F-16 operators are addressable.</p>
+</div>
+<div class="card">
+<h3>C: Naval Platform Operators</h3>
+<p class="tag tag-yellow">Pain: HIGH (FAR consequences)</p>
+<p><strong>Platforms:</strong> Surface combatants, patrol boats, amphibious ships</p>
+<p><strong>Current:</strong> Radar-centric (limited standalone MWS)</p>
+<p><strong>Persona:</strong> CDR Lisa Chen, DDG - needs full-sphere passive detection, hardened against maritime clutter. Cannot tolerate false alarms triggering weapons-free.</p>
+<p><strong>Need:</strong> Near 4&pi; coverage; sub-1-sec reaction; CIWS integration.</p>
+</div>
+<div class="card">
+<h3>D: UAV/UAS Operators</h3>
+<p class="tag tag-green">FASTEST GROWING - Pain: VERY HIGH</p>
+<p><strong>Platforms:</strong> MQ-9, Heron TP, TB2, Hermes 900</p>
+<p><strong>Current:</strong> <span class="warn">NONE</span> - relies on altitude/standoff only</p>
+<p><strong>Persona:</strong> Maj. David Stein, MQ-9 - $15-30M aircraft, no missile warning. Needs ultra-compact (&lt;2 kg, &lt;15W) MWS with GCS alert.</p>
+<p><strong>Willingness to switch:</strong> <span class="highlight">HIGH - no incumbent to displace!</span></p>
+</div>
+<div class="card">
+<h3>E: Ground Vehicle Operators</h3>
+<p class="tag tag-red">Pain: HIGH</p>
+<p><strong>Platforms:</strong> M1 Abrams, M2 Bradley, JLTV, Stryker, Namer</p>
+<p><strong>Current:</strong> AN/AAR-47 HFI, X-Guard, ELI-3312</p>
+<p><strong>Persona:</strong> SSG Carlos Mendez, M2 Bradley - needs 360 deg hostile fire alert, sub-$100K per vehicle. Urban clutter is major challenge.</p>
+<p><strong>Affordability driver:</strong> &lt;$50-100K/vehicle target.</p>
+</div>
+<div class="card">
+<h3>F: Special Operations Aircraft</h3>
+<p class="tag tag-blue">Pain: MEDIUM</p>
+<p><strong>Platforms:</strong> MH-60M, MH-47G, AC-130, CV-22</p>
+<p><strong>Current:</strong> SIRFC, CMWS/CIRCM (IOC on MH-60M)</p>
+<p><strong>Requirements:</strong> Highest performance, lowest SWaP, covert/low-observable integration.</p>
+<p><strong>Note:</strong> Well-served by U.S. programs but constrained by ITAR-driven solutions. Limited near-term opportunity for Rafael.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 16: JTBD & Pain Points -->
+<div class="slide" id="s16" data-title="JTBD & Pain Points">
+<h2>Jobs-To-Be-Done & Pain Points</h2>
+<div class="grid2">
+<div>
+<h3>JTBD by Segment</h3>
+<div class="card" style="margin-bottom:10px">
+<h4>Helicopter Operators</h4>
+<p><em>"When flying in a MANPADS-dense environment, I want immediate, unambiguous warning with azimuth cueing so I can execute evasive maneuver within the threat timeline."</em></p>
+<p><span class="tag tag-red">Unmet:</span> High FAR in UV band, no AI classification on legacy CMWS, limited HFI</p>
+</div>
+<div class="card" style="margin-bottom:10px">
+<h4>Fixed-Wing Operators</h4>
+<p><em>"When engaged by IR-guided SAM/AAM, I want accurate threat azimuth/elevation to automatically cue DIRCM without manual slewing."</em></p>
+<p><span class="tag tag-yellow">Unmet:</span> Sub-3 deg angular accuracy, multi-simultaneous threat tracking</p>
+</div>
+<div class="card" style="margin-bottom:10px">
+<h4>Naval Operators</h4>
+<p><em>"In a multi-threat saturation scenario, I want MWS to classify and prioritize incoming threats by lethality and TTI for sequenced defensive response."</em></p>
+<p><span class="tag tag-red">Unmet:</span> Passive all-aspect EO coverage, radar-fusion, ECM resilience</p>
+</div>
+<div class="card" style="margin-bottom:10px">
+<h4>UAV Operators</h4>
+<p><em>"When my MALE UAV operates in contested area, I want a lightweight MWS that alerts ground station so operator can maneuver away."</em></p>
+<p><span class="tag tag-red">FULLY UNMET</span> - No fielded solution exists. $15-30M assets at risk.</p>
+</div>
+<div class="card">
+<h4>Ground Vehicle Operators</h4>
+<p><em>"When under fire from RPG/ATGM in urban terrain, I want audio/visual azimuth alert within 0.5s for counter-fire or evasive action."</em></p>
+<p><span class="tag tag-yellow">Unmet:</span> Passive all-weather EO detection, affordable unit cost, APS cueing</p>
+</div>
+</div>
+<div>
+<h3>Top 3 Pain Points (5-Whys Analysis)</h3>
+<div class="card" style="margin-bottom:12px;border-color:rgba(255,107,107,0.4)">
+<h4 style="color:#ff6b6b">Pain #1: High False Alarm Rate</h4>
+<p><strong>Root Cause:</strong> Legacy UV sensors with rule-based algorithms cannot discriminate in modern complex environments.</p>
+<p><strong>Evidence:</strong> Apache alarm anomalies documented; MITRE/FAA alarm complacency research</p>
+<p><strong>Solution:</strong> MWIR dual-band + embedded ML classification (validated by 2CAWS, PAWS-2). Design native MWIR + AI architecture.</p>
+</div>
+<div class="card" style="margin-bottom:12px;border-color:rgba(255,204,0,0.4)">
+<h4 style="color:#ffcc00">Pain #2: Integration Complexity</h4>
+<p><strong>Root Cause:</strong> Absence of open/modular architecture standards for MWS. Proprietary interfaces (BAE, Elbit) lock customers into full-suite integration.</p>
+<p><strong>Impact:</strong> 12-36 months NRE per platform, uneconomical for smaller fleets.</p>
+<p><strong>Solution:</strong> Open-architecture MWS with standardized interfaces (MIL-STD-1553, Ethernet/ARINC 664, FACE-compliant software).</p>
+</div>
+<div class="card" style="border-color:rgba(0,170,255,0.4)">
+<h4 style="color:#00AAFF">Pain #3: SWaP Limitations</h4>
+<p><strong>Root Cause:</strong> Heritage designs sized for large helicopters. Cooled MWIR required large dewar assemblies. Requirements written by/for large platform operators.</p>
+<p><strong>Impact:</strong> Light helicopters, UAVs, patrol boats, light vehicles unprotected.</p>
+<p><strong>Solution:</strong> Uncooled/TE-cooled MWIR + compact SoC processors. Target &lt;800g, &lt;10W per head for UAV/light platforms.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 17: Procurement Criteria -->
+<div class="slide" id="s17" data-title="Procurement Criteria">
+<h2>Procurement Criteria & Buying Process</h2>
+<div class="grid2">
+<div>
+<h3>Tier 1: Threshold (Must Have)</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Criterion</th><th>Description</th></tr>
+<tr><td>Detection Probability</td><td>Near-100% Pd against threat set; failure = aircraft loss</td></tr>
+<tr><td>False Alarm Rate</td><td>Operationally acceptable; high FAR = crew disables system</td></tr>
+<tr><td>Reaction Time</td><td>&lt;0.5s warning to countermeasure; threat timeline is fixed</td></tr>
+<tr><td>Environmental Qual</td><td>MIL-STD-810/461, NATO AECTP equivalents</td></tr>
+<tr><td>Platform Certification</td><td>STC/MTC or national airworthiness approval</td></tr>
+<tr><td>DIRCM/Dispenser Compat</td><td>Interface with existing countermeasures on platform</td></tr>
+</table>
+</div>
+<h3>Tier 2: Discriminators</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Criterion</th><th>Description</th></tr>
+<tr><td>SWaP</td><td>Smaller/lighter = more platforms addressable</td></tr>
+<tr><td>Open Architecture</td><td>MOSA/FACE compliance reduces integration NRE</td></tr>
+<tr><td>AI/ML Classification</td><td>Reduces FAR; provides threat ID not just detection</td></tr>
+<tr><td>HFI Capability</td><td>RPG/small arms detection increasingly required</td></tr>
+<tr><td>Multi-threat Tracking</td><td>Track 4+ simultaneous threats</td></tr>
+<tr><td>MTBF / Reliability</td><td>Drives logistics burden and ownership cost</td></tr>
+<tr><td>Software Reprogrammability</td><td>Rapid threat library updates without hardware change</td></tr>
+</table>
+</div>
+</div>
+<div>
+<h3>Tier 3: Commercial/Industrial</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Criterion</th><th>Description</th></tr>
+<tr><td>Total Ownership Cost</td><td>Acq + 20yr O&S; O&S typically 70% of lifecycle</td></tr>
+<tr><td>Technology Transfer</td><td>Critical for India, Middle East, some EU</td></tr>
+<tr><td>Industrial Participation</td><td>Local manufacturing/maintenance requirements</td></tr>
+<tr><td>Export Control Regime</td><td><span class="highlight">ITAR-free valued by non-US customers</span></td></tr>
+<tr><td>Vendor Stability</td><td>Long program commitments require viability assurance</td></tr>
+</table>
+</div>
+<h3>Lifecycle Cost Example</h3>
+<div class="card">
+<p>100-aircraft fleet, 20-year MWS program:</p>
+<ul>
+<li>Acquisition: ~$40M</li>
+<li>O&S (spares, maintenance, SW updates): ~$90-100M+</li>
+<li><strong>Total ownership: ~$130-140M</strong></li>
+</ul>
+<p style="margin-top:8px"><strong>Key O&S drivers:</strong></p>
+<ul>
+<li>Cooled detector maintenance ($15-30K/event) - uncooled eliminates</li>
+<li>Software currency/threat library updates</li>
+<li>Diminishing manufacturing sources (DMS) for legacy components</li>
+<li>False alarm-driven maintenance (indirect cost multiplier)</li>
+</ul>
+</div>
+<h3>Certification Requirements</h3>
+<p>MIL-HDBK-516, MIL-STD-810, DO-160 (civil carry). <span class="warn">3-5 years</span> per jurisdiction for new MWS. Longest lead item in market entry plan.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 18: Unmet Needs & Gaps -->
+<div class="slide" id="s18" data-title="Unmet Needs & Market Gaps">
+<h2>Unmet Needs & Market Gaps</h2>
+<div class="grid3">
+<div class="card" style="border-color:rgba(255,107,107,0.4)">
+<h3 style="color:#ff6b6b">Gap 1: MALE UAV MWS</h3>
+<p class="tag tag-red">CRITICAL - Zero Incumbent</p>
+<p>No qualified SWaP-optimized EO MWS for MALE drones. Addressable fleet: <span class="highlight">1,000+ aircraft</span> globally (MQ-9, Heron TP, TB2, Hermes 900). Asset values $15-30M. <strong>First-mover advantage available.</strong></p>
+<p class="small">Requirement: &lt;800g/head, &lt;10W, uncooled/TE-cooled, MAVLink + STANAG 4586</p>
+</div>
+<div class="card" style="border-color:rgba(255,204,0,0.4)">
+<h3 style="color:#ffcc00">Gap 2: Affordable Ground Vehicle HFI</h3>
+<p class="tag tag-yellow">UNDERSERVED</p>
+<p>Standalone affordable (&lt;$50K) MWIR + acoustic fusion HFI for APCs/tactical vehicles. AN/AAR-47 HFI is US-only. Vehicle fleets measured in thousands. Ukraine conflict accelerated demand globally.</p>
+<p class="small">Requirement: 360 deg, &lt;2 kg, &lt;20W, CAN bus, &lt;$50-100K</p>
+</div>
+<div class="card" style="border-color:rgba(0,170,255,0.4)">
+<h3 style="color:#00AAFF">Gap 3: Naval Surface EO MWS</h3>
+<p class="tag tag-blue">NICHE - HIGH VALUE</p>
+<p>No widely deployed dedicated EO MWS for surface combatants. Radar-centric defense is vulnerable to passive IR-homing threats. Smaller navies (SE Asia, Middle East, S. America) with corvettes/OPVs have no viable solution.</p>
+<p class="small">Requirement: 4&pi; coverage, &lt;1s reaction, MIL-S-901, CMS integration</p>
+</div>
+<div class="card" style="border-color:rgba(0,204,136,0.4)">
+<h3 style="color:#00cc88">Gap 4: ITAR-Free Open Architecture MWS</h3>
+<p class="tag tag-green">POLICY-DRIVEN</p>
+<p>India, Turkey, Gulf states, SE Asia frustrated with US ITAR constraints on CMWS/LAIRCM. Need trusted non-US supplier enabling mixed-origin fleet (Mi-17, Supercougar, CN-235) equipment without FMS complications.</p>
+<p class="small">Market positioning gap, not technology gap. Elbit proves Israeli ITAR-free wins.</p>
+</div>
+<div class="card" style="border-color:rgba(0,204,136,0.4)">
+<h3 style="color:#00cc88">Gap 5: AI-Native Full-Spectrum HFI</h3>
+<p class="tag tag-green">TECH GAP CLOSING</p>
+<p>Convergence of MWIR + AI enabling simultaneous MANPADS + RPG + ATGM + small arms detection in single sensor head. Technically achievable now (Elbit claims) but not universally available at competitive SWaP/cost for non-US customers.</p>
+</div>
+<div class="card" style="border-color:rgba(0,170,255,0.4)">
+<h3 style="color:#00AAFF">Gap 6: Scalable Multi-Platform Family</h3>
+<p class="tag tag-blue">STRUCTURAL</p>
+<p>Solutions designed for Apache don't fit UAVs; naval solutions don't adapt to vehicles. No vendor offers modular family sharing common sensor head (3 size variants), processing unit, and SW across airborne/naval/ground. Would reduce qualification cost and give major commercial leverage.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 19: White Space Opportunities -->
+<div class="slide" id="s19" data-title="White Space Opportunities">
+<h2>5 White Space Opportunities</h2>
+<div class="grid2">
+<div>
+<div class="card" style="margin-bottom:12px;border-left:4px solid #00cc88">
+<h3>1. UAV MWS <span class="tag tag-green">Highest Priority</span></h3>
+<p>Purpose-built SWaP-optimized MWS for MALE/HALE UAVs. No dominant supplier yet. 1,000+ addressable aircraft. First-mover advantage.</p>
+<p><strong>Target:</strong> Sub-800g, &lt;10W uncooled MWIR. Launch on Heron TP (internal customer).</p>
+<p><strong>TAM:</strong> Expanding from 5-8% to potentially 15-20% of MAW market by 2030.</p>
+</div>
+<div class="card" style="margin-bottom:12px;border-left:4px solid #00AAFF">
+<h3>2. Naval EO MWS <span class="tag tag-blue">Quick Win</span></h3>
+<p>Repackage Sea Spotter with MAW classification and cueing output. Shortest technical distance. Naval market less saturated than airborne.</p>
+<p><strong>Advantage:</strong> Sea Spotter FAR of ~1/24 hours already proven. Directly applicable to naval MAW.</p>
+<p><strong>Target:</strong> Patrol boats, corvettes, frigates. Smaller navies as beachhead.</p>
+</div>
+<div class="card" style="margin-bottom:12px;border-left:4px solid #ffcc00">
+<h3>3. Ground Vehicle HFI <span class="tag tag-yellow">Leverage Trophy</span></h3>
+<p>Add EO-based MANPADS detection to Trophy APS architecture. First true integrated ground vehicle MWS/APS globally.</p>
+<p><strong>Advantage:</strong> Trophy customer relationships (US Army, Israel, Germany, Australia).</p>
+<p><strong>Market:</strong> Ukraine conflict massively accelerated demand worldwide.</p>
+</div>
+</div>
+<div>
+<div class="card" style="margin-bottom:12px;border-left:4px solid #00DDFF">
+<h3>4. ITAR-Free Export MWS <span class="tag tag-blue">Differentiator</span></h3>
+<p>Gen-3 MWIR MWS without US/FMS constraints. Target nations seeking alternatives: India, Gulf states, SE Asia, Latin America, Eastern Europe.</p>
+<p><strong>Design imperative:</strong> Maximize non-ITAR Israeli-developed components. No US-origin detectors, FPGAs, or processors.</p>
+<p><strong>Evidence:</strong> Elbit's C-MUSIC success in Europe/APAC validates Israeli ITAR-free positioning.</p>
+</div>
+<div class="card" style="margin-bottom:12px;border-left:4px solid #88bbdd">
+<h3>5. Open Architecture Platform-Agnostic MWS</h3>
+<p>Modular product family with common sensor head (3 sizes), common processing, common SW architecture. Qualified across airborne/naval/ground. No vendor offers this today.</p>
+<p><strong>Interfaces:</strong> MIL-STD-1553, Ethernet (ARINC 664), FACE, STANAG 4670 (DIRCM cueing). DIRCM-agnostic: cue Elbit MUSIC, Northrop CIRCM, or Leonardo Miysis.</p>
+</div>
+<div class="card" style="border-left:4px solid #00cc88">
+<h3>Affordable Gen-3 for Tier 2/3 Air Forces</h3>
+<p>Gap between aging UV systems and premium MWIR (PAWS-2, 2CAWS) is large in cost. Many air forces need Gen-3 performance at Gen-2 price.</p>
+<p><strong>Opportunity:</strong> Uncooled MWIR MWS priced competitively for Tier 2/3 air forces seeking modernization. Significant volume capture potential.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 20: Market Drivers -->
+<div class="slide" id="s20" data-title="Market Drivers & Tailwinds">
+<h2>Market Drivers & Tailwinds</h2>
+<div class="grid3">
+<div class="card">
+<h3 style="color:#ff6b6b">Geopolitical Drivers</h3>
+<ul>
+<li><strong>Ukraine Conflict:</strong> MANPADS extensively used against helicopters/fixed-wing by both sides. Validated vehicle MWS urgency.</li>
+<li><strong>Middle East Escalation:</strong> MANPADS use in Yemen, Syria, Sudan. Israeli defense budget elevated to $37B.</li>
+<li><strong>Indo-Pacific Tensions:</strong> China, N. Korea driving India ($79B), Japan, S. Korea, Australia modernization.</li>
+<li><strong>MANPADS Proliferation:</strong> 500,000+ units global inventory. Gen 3/4 systems (SA-24, Verba, QW-4) reaching non-state actors.</li>
+<li><strong>Commercial aviation threat:</strong> 500+ civil aircraft within range of conflict zones.</li>
+</ul>
+</div>
+<div class="card">
+<h3 style="color:#00cc88">Technology Drivers</h3>
+<ul>
+<li><strong>UV &rarr; MWIR Transition:</strong> Creates entry point for new products with superior AI/ML vs. legacy</li>
+<li><strong>AI/ML Classification:</strong> FAR is #1 operational complaint; ML dramatically reduces FAR</li>
+<li><strong>HOT Detectors:</strong> SCD Crane at &gt;110K shrinks cooler 40-60%. SWaP breakthrough.</li>
+<li><strong>Multi-spectral Fusion:</strong> UV + MWIR addresses both MANPADS (UV plume) and radar-guided (MWIR body)</li>
+<li><strong>Gen 4 MANPADS (imaging IR FPA seekers):</strong> Make flares ineffective, DIRCM mandatory &rarr; MWS cueing critical</li>
+<li><strong>UAV/Drone Proliferation:</strong> New threat categories. Platforms in contested airspace need MWS.</li>
+</ul>
+</div>
+<div class="card">
+<h3 style="color:#00AAFF">Budget & Policy Drivers</h3>
+<ul>
+<li><strong>Global Defense Spending:</strong> $2.63T (2025), up from $2.48T</li>
+<li><strong>US EW Commitment:</strong> $21B over 5 years, 40% spending uplift</li>
+<li><strong>Europe +12.6%:</strong> NATO members pushing beyond 2% GDP</li>
+<li><strong>ITAR-Free Demand:</strong> Growing segment seeking non-US alternatives</li>
+<li><strong>DIRCM Integration Trend:</strong> MWS as mandated cueing front-end. BAE+Leonardo interop (2024) establishes multi-vendor standard.</li>
+<li><strong>Fleet Modernization:</strong> FLRAA, NH90 upgrades, A400M expansion, KF-21, Rafale exports all specify MWS</li>
+<li><strong>"Make in India":</strong> 1/3 capital for domestic procurement &rarr; offset/JV opportunity</li>
+</ul>
+</div>
+</div>
+<div class="card" style="margin-top:15px">
+<h3>MAW Market Forecast Scenarios</h3>
+<div class="grid3">
+<div>
+<h4>Conservative</h4>
+<p>$1.6B (2025) &rarr; $2.1B (2030) &rarr; $2.7B (2035)</p>
+<p class="small">CAGR: 5.5%</p>
+</div>
+<div>
+<h4 class="highlight">Base Case</h4>
+<p>$2.0B (2025) &rarr; $2.8B (2030) &rarr; $3.8B (2035)</p>
+<p class="small">CAGR: 6.5%</p>
+</div>
+<div>
+<h4>Optimistic (conflict-driven)</h4>
+<p>$2.3B (2025) &rarr; $3.5B (2030) &rarr; $5.0B (2035)</p>
+<p class="small">CAGR: 8.0%</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 21: Threats & Headwinds -->
+<div class="slide" id="s21" data-title="Threats & Headwinds">
+<h2>Threats & Headwinds</h2>
+<div class="grid2">
+<div>
+<h3 style="color:#ff6b6b">Competitive Barriers</h3>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,107,107,0.3)">
+<h4>Incumbent Lock-In</h4>
+<p>BAE CMWS and Northrop LAIRCM benefit from US Army logistics, training, and maintenance infrastructure creating <span class="warn">high switching costs</span>. Installed base of 15,000-20,000+ BAE sensors and 7,000+ Hensoldt sensors in Europe.</p>
+<p>Sustainment contracts provide recurring revenue that funds next-gen development.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,107,107,0.3)">
+<h4>Certification Barriers</h4>
+<p>Airworthiness certification (MIL-HDBK-516, MIL-STD-810, DO-160): <span class="warn">3-5 years per jurisdiction</span> for a new MWS. Missing certification windows can delay revenue by years. This is the longest lead item.</p>
+</div>
+<div class="card" style="border-color:rgba(255,107,107,0.3)">
+<h4>US Market Closed</h4>
+<p>DoD requirements for domestic sourcing effectively lock Rafael out of US Army/USAF/USN market. Buy American Act, ITAR controls, and established FMS programs favor BAE and Northrop.</p>
+</div>
+</div>
+<div>
+<h3 style="color:#ffcc00">Market & Operational Risks</h3>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,204,0,0.3)">
+<h4>Budget Risks</h4>
+<p>Defense budget cycles are political. Economic downturns or policy shifts could slow procurement. European spending surge is partially driven by Ukraine crisis - resolution could reduce urgency.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,204,0,0.3)">
+<h4>Export Control Complexity</h4>
+<p>Israeli defense exports controlled by SIBAT. US-origin components trigger ITAR re-export requirements. MWIR FPAs, ML software, and DIRCM cueing interfaces are heavily controlled. Export approvals add 12-24 months to delivery.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-color:rgba(255,204,0,0.3)">
+<h4>Competitive Timing Risk</h4>
+<p>BAE 2CAWS (400 units, 2024) and Elbit PAWS-2 HR (2025) have first-mover advantage. Rafael entering 5 years after means competing against mature, fielded systems with established logistics chains. No new entrants have broken in 2023-2026.</p>
+</div>
+<div class="card" style="border-color:rgba(255,204,0,0.3)">
+<h4>Internal Risks</h4>
+<p>Rafael's Sky Shield and X-Guard serve adjacent missions - internal cannibalization risk must be managed. Brand recognition: Rafael is not currently thought of as an MWS vendor - marketing investment required.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 22: Rafael SWOT -->
+<div class="slide" id="s22" data-title="Rafael SWOT Analysis">
+<h2>Rafael SWOT Analysis</h2>
+<div class="swot-grid">
+<div class="swot-card swot-s">
+<h3 style="color:#00cc88">Strengths</h3>
+<ul>
+<li><strong>MWIR FPA Technology:</strong> Deep expertise from Litening pod (1.2K x 1.2K MWIR + SWIR). Core technology of Gen-3 MWS.</li>
+<li><strong>Sky Spotter Architecture:</strong> Wide-FOV MWIR staring sensor with AI-based detection - <span class="highlight">closest existing asset to MWS sensor head</span></li>
+<li><strong>Sea Spotter Naval EO:</strong> Staring IRST, FAR ~1/24 hours, passive 360 deg. Directly applicable to naval MWS.</li>
+<li><strong>SCD Detector Access:</strong> Co-investor (NIS 2B agreement, 2025). Privileged access to HOT MWIR (Crane 5M).</li>
+<li><strong>Combat Proven:</strong> Systems operate in world's most contested environments (Iron Dome, Trophy, Litening)</li>
+<li><strong>Trophy Integration:</strong> Ground vehicle MWS addon path - no airborne MWS vendor serves this</li>
+<li><strong>Export Flexibility:</strong> Sells to India, UAE, Singapore, Morocco, S. Korea - markets US vendors cannot easily reach</li>
+<li><strong>Multi-Platform Integration:</strong> 30+ platform types across Litening program</li>
+</ul>
+</div>
+<div class="swot-card swot-w">
+<h3 style="color:#ff6b6b">Weaknesses</h3>
+<ul>
+<li><strong>No Dedicated MWS Product:</strong> No UV, no MWIR sensor head for MAW. No DIRCM laser countermeasure.</li>
+<li><strong>No Airborne Self-Protection Certification:</strong> No airworthiness record for self-protection suite</li>
+<li><strong>Not on OEM Qualified Vendor Lists:</strong> Not listed for any helicopter self-protection program</li>
+<li><strong>Sky Spotter Gap:</strong> Ground/naval optimized; needs airborne adaptation (vibration, EMI, altitude)</li>
+<li><strong>No Two-Color MWIR System:</strong> Required for &lt;1 FAR/hr; need to build or partner</li>
+<li><strong>Missile AI Dataset Gap:</strong> Models trained on drones, not missiles. Need IDF/IAF data access.</li>
+<li><strong>Brand Recognition:</strong> Not associated with MWS market - marketing investment required</li>
+<li><strong>Israeli Export Controls:</strong> SIBAT controls apply; some Middle East limitations</li>
+</ul>
+</div>
+<div class="swot-card swot-o">
+<h3 style="color:#00AAFF">Opportunities</h3>
+<ul>
+<li><strong>UAV White Space:</strong> No incumbent - first-mover advantage for SWaP-optimized MWS</li>
+<li><strong>Naval MWS Gap:</strong> Sea Spotter to MWS transition is shortest technical distance</li>
+<li><strong>UV &rarr; MWIR Transition:</strong> Technology inflection creates entry window for new product</li>
+<li><strong>India:</strong> 156 LCH Prachand, Mi-17 fleet, Su-30MKI EW upgrade. "Make in India" JV potential. Existing DRDO/MoD relationships.</li>
+<li><strong>ITAR-Free Demand:</strong> Growing segment of nations seeking non-US MWS</li>
+<li><strong>European Defense Fund:</strong> EDF/EDIP programs with European JV partner</li>
+<li><strong>Ground Vehicle Market:</strong> Ukraine-driven demand, Trophy ecosystem leverage</li>
+<li><strong>3-5% MAW share by 2030 = $84-140M annual revenue</strong></li>
+</ul>
+</div>
+<div class="swot-card swot-t">
+<h3 style="color:#ffcc00">Threats</h3>
+<ul>
+<li><strong>Elbit as Primary Competitor:</strong> Israeli peer with established PAWS-2/MUSIC, winning $260-275M contracts</li>
+<li><strong>BAE/Northrop Incumbency:</strong> 15-20K+ sensors, US Army lock, massive sustainment revenue</li>
+<li><strong>ITDS/ATHENA:</strong> Northrop winning next US Army standard - reshapes market post-2029</li>
+<li><strong>Certification Timeline:</strong> 3-5 years per jurisdiction; competitors already certified</li>
+<li><strong>AI FAR Risk:</strong> Lab-validated ML models routinely degrade in operational environments</li>
+<li><strong>SCD Detector Risk:</strong> Crane 5M is new; production yield and MTBF not field-validated at scale</li>
+<li><strong>US Component Dependency:</strong> Any US-origin parts trigger ITAR re-export undermining ITAR-free positioning</li>
+<li><strong>Budget Cycle Sensitivity:</strong> Defense spending surges could plateau</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 23: Go-to-Market Strategy -->
+<div class="slide" id="s23" data-title="Go-to-Market Strategy">
+<h2>Go-to-Market Strategy</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="phase-header">Phase 1: Naval MWS (0-18 months) <span class="tag tag-green">Quick Win</span></div>
+<div class="grid2" style="margin-top:8px">
+<div>
+<ul>
+<li>Launch Sea Spotter MAW variant for naval market</li>
+<li>Repackage Sea Spotter with explicit MAW classification + cueing output</li>
+<li>Position as "Sea Spotter MAW" - naval missile approach warning with IRST</li>
+<li>Target: patrol boats, corvettes, frigates in MANPADS threat environments</li>
+<li>Customers: smaller navies (SE Asia, Middle East, South America)</li>
+</ul>
+</div>
+<div>
+<p><strong>Investment:</strong> $15-25M</p>
+<p><strong>Risk:</strong> Low - builds on proven Sea Spotter platform</p>
+<p><strong>Differentiator:</strong> FAR ~1/24 hours, passive, all-aspect</p>
+<p><strong>Revenue target:</strong> Initial contracts by month 18</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="phase-header">Phase 2: Ground Vehicle MWS (18-36 months) <span class="tag tag-yellow">Leverage Trophy</span></div>
+<div class="grid2" style="margin-top:8px">
+<div>
+<ul>
+<li>Add EO-based MANPADS detection sensor to Trophy APS architecture</li>
+<li>Market as "Trophy MWS" - integrated ground vehicle protection</li>
+<li>First true integrated MWS/APS system globally</li>
+<li>Target: armies that watched Ukraine and are reconsidering vehicle survivability</li>
+<li>Leverage existing Trophy customers: US Army, Israel, Germany, Australia</li>
+</ul>
+</div>
+<div>
+<p><strong>Investment:</strong> $30-50M (airborne Sky Spotter adaptation parallel)</p>
+<p><strong>Risk:</strong> Low technical risk, Trophy integration proven</p>
+<p><strong>Unit cost target:</strong> &lt;$50-100K per vehicle</p>
+<p><strong>Also parallel:</strong> Establish two-color MWIR sensor head program + missile AI/ML dataset</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="phase-header">Phase 3: Airborne MWS (36-72 months) <span class="tag tag-blue">Full Market Entry</span></div>
+<div class="grid2" style="margin-top:8px">
+<div>
+<ul>
+<li>Dedicated MWIR passive MWS sensor for rotary-wing first, then fixed-wing</li>
+<li>MWIR dual-band, AI-native classification, &lt;10 kg system, &lt;100W</li>
+<li>DIRCM cueing accuracy: &lt;3 deg for CIRCM/MUSIC integration</li>
+<li>HFI capability: RPG + ATGM + MANPADS detection</li>
+<li>ITAR-free positioning for non-US helicopter customers</li>
+</ul>
+</div>
+<div>
+<p><strong>Investment:</strong> $60-100M (prototype + flight test) + $40-70M (certification)</p>
+<p><strong>Launch customer:</strong> IDF helicopter/IAF for certification credibility</p>
+<p><strong>Target markets:</strong> India (LCH/Mi-17), APAC, Eastern Europe, Middle East</p>
+<p><strong>UAV variant:</strong> HOT detector + SiP for Group 3/4 UAS</p>
+<p><strong>DIRCM strategy:</strong> Open cueing interface initially, evaluate partnership/organic dev years 3-5</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 24: Financial Projections -->
+<div class="slide" id="s24" data-title="Financial Projections">
+<h2>Financial Projections</h2>
+<div class="grid2">
+<div>
+<h3>Investment Required</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Priority</th><th>Action</th><th>Investment</th><th>Timeline</th></tr>
+<tr><td>1</td><td>Two-color MWIR sensor head</td><td>$20-35M</td><td>0-18 mo</td></tr>
+<tr><td>2</td><td>Missile AI/ML dataset & models</td><td>$20-40M</td><td>0-36 mo</td></tr>
+<tr><td>3</td><td>Airborne Sky Spotter adaptation</td><td>$30-50M</td><td>0-24 mo</td></tr>
+<tr><td>4</td><td>Naval MWS (Sea Spotter derived)</td><td>$15-25M</td><td>0-18 mo</td></tr>
+<tr><td>5</td><td>UAV-optimized sensor head</td><td>$15-25M</td><td>18-36 mo</td></tr>
+<tr><td>6</td><td>Airworthiness certification</td><td>$20-35M</td><td>24-48 mo</td></tr>
+<tr><td>7</td><td>DIRCM partnership/integration</td><td>$5-15M</td><td>12-24 mo</td></tr>
+</table>
+</div>
+<div class="card" style="margin-top:12px;border-color:rgba(0,170,255,0.4)">
+<h4>Total 5-Year Investment to IOC</h4>
+<div class="stat-num" style="font-size:1.8em">$150-250M</div>
+<p class="small">Compares to Elbit's PAWS trajectory (~15 years PAWS-1 to PAWS-2 HR). Rafael starts with higher baseline (Sky Spotter) and current COTS detector tech.</p>
+</div>
+</div>
+<div>
+<h3>Revenue Projections (Base Case MAW Market: $2.0B 2025)</h3>
+<div class="card" style="margin-bottom:12px">
+<h4>Rafael at 3% Market Share by 2030</h4>
+<div class="stat-num" style="font-size:1.6em">$84M/year</div>
+<p class="small">At 2030 base case market of $2.8B</p>
+</div>
+<div class="card" style="margin-bottom:12px">
+<h4>Rafael at 5% Market Share by 2030</h4>
+<div class="stat-num" style="font-size:1.6em">$140M/year</div>
+<p class="small">At 2030 base case market of $2.8B</p>
+</div>
+<div class="card" style="margin-bottom:12px">
+<h4>DIRCM Integration Revenue Layer</h4>
+<p>Licensing, integration services could add <span class="highlight">20-30%</span> to above figures.</p>
+<p>Naval and ground extensions represent <strong>additional TAM beyond airborne</strong>.</p>
+</div>
+<h3>Development Phases & ROI</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Phase</th><th>Timeline</th><th>Cost</th></tr>
+<tr><td>Tech Demonstrator</td><td>Months 1-24</td><td>$50-80M</td></tr>
+<tr><td>Prototype & Flight Test</td><td>Months 18-42</td><td>$60-100M</td></tr>
+<tr><td>Certification & Initial Prod.</td><td>Months 36-60</td><td>$40-70M</td></tr>
+</table>
+</div>
+<p style="margin-top:10px"><strong>First revenue:</strong> Naval MWS at ~18 months. Airborne revenue from ~month 48-60.</p>
+<p><strong>Break-even:</strong> At $100M+/year revenue, investment recovers in 2-3 years post-IOC.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 25: Strategic Recommendations -->
+<div class="slide" id="s25" data-title="Strategic Recommendations">
+<h2>Strategic Recommendations & Next Steps</h2>
+<div class="grid2">
+<div>
+<h3>Top Strategic Recommendations</h3>
+<div class="card" style="margin-bottom:10px;border-left:4px solid #00cc88">
+<h4>1. Launch Modular EO MWS Product Family</h4>
+<p>Common sensor head (3 sizes: UAV/mini, helicopter, naval/ground), common processing, common SW. Platform-agnostic, DIRCM-agnostic. Open architecture as differentiator vs. BAE/Elbit proprietary stacks.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-left:4px solid #00AAFF">
+<h4>2. Prioritize Naval MWS as First Product</h4>
+<p>Sea Spotter to MWS transition is shortest technical path. Naval market less saturated. Positions Rafael in segment with unique heritage. Target 0-18 months.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-left:4px solid #ffcc00">
+<h4>3. Seize UAV White Space</h4>
+<p>No incumbent. 1,000+ addressable aircraft. Sub-800g HOT/uncooled sensor from Rafael/SCD technology. Launch on Heron TP as internal customer. First-mover advantage.</p>
+</div>
+<div class="card" style="margin-bottom:10px;border-left:4px solid #00DDFF">
+<h4>4. Design ITAR-Free from Day One</h4>
+<p>Maximize Israeli-developed components. No US-origin detectors/FPGAs/processors. Enables India, Gulf, SE Asia, Eastern Europe markets. Mirrors Elbit's proven export strategy.</p>
+</div>
+<div class="card" style="border-left:4px solid #88bbdd">
+<h4>5. Pursue Strategic Partnerships</h4>
+<p><strong>European JV:</strong> Qualify for EDF funding, EU-origin certification. <strong>India offset:</strong> ToT to HAL/BEL for 156 LCH + Mi-17 fleet. <strong>DIRCM partner:</strong> Northrop CIRCM (US access) or Leonardo Miysis (EU).</p>
+</div>
+</div>
+<div>
+<h3>Key Design Principles</h3>
+<ul>
+<li><strong>AI-first architecture:</strong> ML threat discrimination baked into sensor head, not added later</li>
+<li><strong>Two-color MWIR:</strong> Hard requirement for &lt;1 FAR/flight hour</li>
+<li><strong>Open interfaces:</strong> MIL-STD-1553, Ethernet, FACE, STANAG 4670 by default</li>
+<li><strong>Software-defined threat library:</strong> OTA-capable update architecture from day one</li>
+<li><strong>FAR as primary KPI:</strong> Design goal &lt;1 nuisance alarm/10 flight hours in worst-case clutter</li>
+<li><strong>Uncooled/TE-cooled option:</strong> Eliminates dominant O&S cost driver (cooler maintenance)</li>
+</ul>
+<h3>Immediate Next Steps (0-6 months)</h3>
+<div class="card">
+<ol style="padding-left:18px">
+<li>Establish two-color MWIR sensor head program (SCD Crane + Lynred Altair)</li>
+<li>Launch missile AI/ML dataset program with IDF/IAF cooperation</li>
+<li>Adapt Sky Spotter for airborne environment as technology demonstrator</li>
+<li>Define open DAS architecture + publish ICD for DIRCM cueing</li>
+<li>Begin Sea Spotter MAW variant development (naval first product)</li>
+<li>Engage Indian MoD for LCH Prachand MWS opportunity (ToT pathway)</li>
+<li>Establish European JV discussions for EDF qualification</li>
+<li>Internal cannibalization assessment (Sky Shield, X-Guard)</li>
+</ol>
+</div>
+<h3 style="margin-top:12px">Market Timing</h3>
+<p>The MWS market is at an inflection point. Budget increases confirmed, threat proliferation accelerating, UAV segment creating new requirements incumbents have not addressed. A new entrant with <span class="highlight">2027-2028 product availability</span> targets the next procurement cycle. <strong>The window is now.</strong></p>
+</div>
+</div>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let current=0;
+let navDirection='right';
+const progressBar=document.getElementById('progress-bar');
+const counter=document.getElementById('slide-counter');
+const swipeLeft=document.getElementById('swipe-indicator');
+const swipeRight=document.getElementById('swipe-indicator-r');
+
+// Slide titles for menu
+const slideTitles=[
+'Title','Executive Summary','Market Size & Segmentation','Market Share & Tier Structure',
+'Geographic Analysis','Key Contracts & Programs','BAE Systems Deep-Dive','Elbit Systems Deep-Dive',
+'Northrop Grumman Deep-Dive','Hensoldt Deep-Dive','Other Competitors','Technology Landscape',
+'AI/ML & Processing Trends','SWaP Analysis & Benchmarks','Customer Segments & Personas',
+'JTBD & Pain Points','Procurement Criteria','Unmet Needs & Market Gaps','White Space Opportunities',
+'Market Drivers & Tailwinds','Threats & Headwinds','Rafael SWOT Analysis','Go-to-Market Strategy',
+'Financial Projections','Strategic Recommendations'
+];
+
+// Build slide menu
+const menuItems=document.getElementById('menu-items');
+slideTitles.forEach(function(title,i){
+const item=document.createElement('div');
+item.className='menu-item'+(i===0?' active':'');
+item.innerHTML='<span class="num">'+(i+1)+'</span>'+title;
+item.addEventListener('click',function(){
+closeMenu();
+showSlide(i);
+});
+menuItems.appendChild(item);
+});
+
+function showSlide(n){
+if(n<0)n=0;if(n>=total)n=total-1;
+if(n===current)return;
+navDirection=n>current?'right':'left';
+slides[current].classList.remove('active');
+slides[current].classList.remove('from-left');
+current=n;
+slides[current].classList.remove('from-left');
+if(navDirection==='left'){
+slides[current].classList.add('from-left');
+}
+slides[current].classList.add('active');
+slides[current].scrollTop=0;
+progressBar.style.width=((current+1)/total*100)+'%';
+counter.textContent=(current+1)+' / '+total;
+// Update menu active state
+const items=menuItems.querySelectorAll('.menu-item');
+items.forEach(function(item,i){
+item.className='menu-item'+(i===current?' active':'');
+});
+}
+
+function openMenu(){
+document.getElementById('slide-menu').classList.add('open');
+// Scroll to current slide in menu
+var items=menuItems.querySelectorAll('.menu-item');
+if(items[current]){
+items[current].scrollIntoView({block:'center',behavior:'smooth'});
+}
+}
+
+function closeMenu(){
+document.getElementById('slide-menu').classList.remove('open');
+}
+
+// Keyboard navigation
+document.addEventListener('keydown',function(e){
+if(document.getElementById('slide-menu').classList.contains('open')){
+if(e.key==='Escape')closeMenu();
+return;
+}
+if(e.key==='ArrowRight'||e.key===' '||e.key==='ArrowDown'){e.preventDefault();showSlide(current+1)}
+if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();showSlide(current-1)}
+if(e.key==='Home'){e.preventDefault();showSlide(0)}
+if(e.key==='End'){e.preventDefault();showSlide(total-1)}
+if(e.key==='Escape'){e.preventDefault();closeMenu()}
+});
+
+// Enhanced swipe navigation with visual feedback
+let touchStartX=0;
+let touchStartY=0;
+let isSwiping=false;
+
+document.addEventListener('touchstart',function(e){
+if(document.getElementById('slide-menu').classList.contains('open'))return;
+touchStartX=e.changedTouches[0].screenX;
+touchStartY=e.changedTouches[0].screenY;
+isSwiping=true;
+},{passive:true});
+
+document.addEventListener('touchmove',function(e){
+if(!isSwiping||document.getElementById('slide-menu').classList.contains('open'))return;
+var diffX=e.changedTouches[0].screenX-touchStartX;
+var diffY=e.changedTouches[0].screenY-touchStartY;
+// Only show indicator if horizontal movement dominates
+if(Math.abs(diffX)>Math.abs(diffY)&&Math.abs(diffX)>30){
+if(diffX<0&&current<total-1){
+swipeRight.style.opacity='0.6';
+swipeLeft.style.opacity='0';
+}else if(diffX>0&&current>0){
+swipeLeft.style.opacity='0.6';
+swipeRight.style.opacity='0';
+}
+}
+},{passive:true});
+
+document.addEventListener('touchend',function(e){
+if(!isSwiping||document.getElementById('slide-menu').classList.contains('open'))return;
+isSwiping=false;
+swipeLeft.style.opacity='0';
+swipeRight.style.opacity='0';
+var diffX=e.changedTouches[0].screenX-touchStartX;
+var diffY=e.changedTouches[0].screenY-touchStartY;
+// Only navigate if horizontal movement dominates vertical
+if(Math.abs(diffX)>50&&Math.abs(diffX)>Math.abs(diffY)){
+if(diffX<0)showSlide(current+1);
+else showSlide(current-1);
+}
+});
+
+// Initialize
+progressBar.style.width=((1)/total*100)+'%';
+</script>
+</body>
+</html>
