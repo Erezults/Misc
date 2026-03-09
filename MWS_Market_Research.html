@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWS Market Research - Electro-Optical Missile Warning Systems</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Assistant', 'Segoe UI', sans-serif;
+            background: #0a0e27;
+            color: #e0e6ed;
+            line-height: 1.7;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 2px solid rgba(0, 170, 255, 0.15);
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(0, 100, 200, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .title-slide {
+            background: linear-gradient(135deg, #0a0e27 0%, #0d1942 50%, #0a1a3a 100%);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00aaff, #00ddff, #4488ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .title-slide .subtitle { font-size: 1.6em; color: #8899bb; margin-bottom: 40px; }
+        .title-slide .meta { font-size: 1.1em; color: #556688; }
+
+        h2 {
+            font-size: 2.4em; font-weight: 700; color: #00aaff;
+            margin-bottom: 30px; padding-bottom: 15px;
+            border-bottom: 3px solid rgba(0, 170, 255, 0.3);
+        }
+
+        h3 { font-size: 1.5em; color: #55bbff; margin: 25px 0 15px; }
+        h4 { font-size: 1.2em; color: #88ccff; margin: 15px 0 10px; }
+        p { margin: 8px 0; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px; margin: 20px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(15, 25, 60, 0.9), rgba(10, 20, 50, 0.95));
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            border-radius: 12px; padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 170, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 100, 200, 0.15);
+        }
+
+        .card .company { font-size: 0.85em; color: #00aaff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .card .system-name { font-size: 1.4em; font-weight: 700; color: #fff; margin-bottom: 12px; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(0, 80, 160, 0.2), rgba(0, 50, 100, 0.1));
+            border: 1px solid rgba(0, 170, 255, 0.25);
+            border-radius: 10px; padding: 25px; text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2.8em; font-weight: 700;
+            background: linear-gradient(135deg, #00ddff, #4488ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .stat-box .label { font-size: 0.95em; color: #8899bb; margin-top: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th {
+            background: rgba(0, 80, 160, 0.3); color: #00ccff;
+            padding: 14px 18px; text-align: right; font-weight: 600;
+            border-bottom: 2px solid rgba(0, 170, 255, 0.3);
+        }
+        td { padding: 12px 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        tr:hover td { background: rgba(0, 80, 160, 0.1); }
+
+        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; margin: 2px; }
+        .tag-ir { background: rgba(255, 100, 50, 0.2); color: #ff8866; border: 1px solid rgba(255, 100, 50, 0.3); }
+        .tag-uv { background: rgba(150, 50, 255, 0.2); color: #bb88ff; border: 1px solid rgba(150, 50, 255, 0.3); }
+        .tag-multi { background: rgba(0, 200, 100, 0.2); color: #66dd88; border: 1px solid rgba(0, 200, 100, 0.3); }
+        .tag-platform { background: rgba(0, 150, 255, 0.15); color: #66bbff; border: 1px solid rgba(0, 150, 255, 0.25); }
+        .tag-rafael { background: rgba(0, 200, 255, 0.2); color: #00ddff; border: 1px solid rgba(0, 200, 255, 0.3); }
+
+        .bar-container {
+            background: rgba(255, 255, 255, 0.05); border-radius: 8px;
+            height: 28px; margin: 8px 0; overflow: hidden; position: relative;
+        }
+
+        .bar {
+            height: 100%; border-radius: 8px;
+            display: flex; align-items: center; padding: 0 12px;
+            font-size: 0.85em; font-weight: 600; color: #fff;
+            transition: width 1s ease;
+        }
+
+        ul, ol { padding-right: 25px; margin: 10px 0; }
+        li { margin: 8px 0; color: #c0c8d8; }
+        li strong { color: #88ccff; }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(0, 100, 200, 0.15), rgba(0, 50, 150, 0.1));
+            border-right: 4px solid #00aaff;
+            padding: 20px 25px; border-radius: 0 10px 10px 0; margin: 20px 0;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, rgba(200, 150, 0, 0.15), rgba(150, 100, 0, 0.1));
+            border-right: 4px solid #ffaa00;
+            padding: 20px 25px; border-radius: 0 10px 10px 0; margin: 20px 0;
+        }
+
+        .opportunity {
+            background: linear-gradient(135deg, rgba(0, 180, 100, 0.15), rgba(0, 120, 80, 0.1));
+            border-right: 4px solid #00cc66;
+            padding: 20px 25px; border-radius: 0 10px 10px 0; margin: 20px 0;
+        }
+
+        .rafael-highlight {
+            background: linear-gradient(135deg, rgba(0, 150, 200, 0.2), rgba(0, 100, 180, 0.1));
+            border-right: 4px solid #00ddff;
+            padding: 20px 25px; border-radius: 0 10px 10px 0; margin: 20px 0;
+        }
+
+        .customer-quote {
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 3px solid #55bbff;
+            padding: 15px 20px; margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic; color: #aabbcc;
+        }
+        .customer-quote .source { font-style: normal; color: #6688aa; font-size: 0.85em; margin-top: 5px; }
+
+        .slide-num { position: absolute; bottom: 20px; left: 40px; color: #334466; font-size: 0.9em; }
+
+        @media print {
+            .slide { page-break-after: always; min-height: auto; padding: 40px; }
+            body { background: white; color: #222; }
+            h2 { color: #0055aa; }
+        }
+
+        .flow-row { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        .flow-box {
+            background: linear-gradient(135deg, rgba(0, 80, 160, 0.3), rgba(0, 50, 120, 0.2));
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            border-radius: 10px; padding: 15px 20px; text-align: center; min-width: 140px;
+        }
+        .flow-arrow { color: #00aaff; font-size: 1.5em; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 20px 0; }
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin: 20px 0; }
+
+        @media (max-width: 900px) {
+            .two-col, .three-col { grid-template-columns: 1fr; }
+            .slide { padding: 30px 20px; }
+            h2 { font-size: 1.8em; }
+        }
+
+        /* Performance matrix styles */
+        .perf-cell { text-align: center; }
+        .perf-high { color: #00dd66; font-weight: 700; }
+        .perf-med { color: #ffaa00; font-weight: 600; }
+        .perf-low { color: #ff6644; font-weight: 600; }
+        .perf-na { color: #556677; }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide">
+    <h1>MWS - Electro-Optical Missile Warning Systems</h1>
+    <div class="subtitle">Electro-Optical Missile Warning Systems</div>
+    <div class="subtitle" style="font-size: 1.2em; color: #6688aa;">Market Research & Performance Analysis</div>
+    <div class="meta" style="margin-top: 40px;">
+        March 2026 | Business Analysis Report
+    </div>
+    <span class="slide-num">1</span>
+</div>
+
+<!-- SLIDE 2: Executive Summary -->
+<div class="slide">
+    <h2>Executive Summary</h2>
+
+    <div class="stats-row">
+        <div class="stat-box">
+            <div class="number">$7.7B</div>
+            <div class="label">Global MWS Market Size (2025)</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">$12.5B</div>
+            <div class="label">Market Forecast (2035)</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">4.9%</div>
+            <div class="label">Expected CAGR</div>
+        </div>
+        <div class="stat-box">
+            <div class="number">55%+</div>
+            <div class="label">IR-based MWS Market Share</div>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <strong>Key Trend:</strong> The market is transitioning from standalone UV systems to multi-spectral imaging systems (IR/UV) incorporating AI/ML,
+        HFI (Hostile Fire Indication) capabilities, and Distributed Aperture architectures.
+        New systems automatically feed DIRCM and Countermeasures directly.
+    </div>
+
+    <div class="two-col">
+        <div>
+            <h3>Key Players</h3>
+            <ul>
+                <li><strong>BAE Systems</strong> - AN/AAR-57 CMWS (USA)</li>
+                <li><strong>Elbit Systems</strong> - PAWS-2 HR (Israel)</li>
+                <li><strong>Rafael</strong> - Sea Spotter / Sky Shield / EW (Israel)</li>
+                <li><strong>Northrop Grumman</strong> - AN/AAQ-24 NEMESIS (USA)</li>
+                <li><strong>Hensoldt</strong> - MILDS AN/AAR-60 (Germany)</li>
+                <li><strong>Thales</strong> - Elix-IR / MIRAS (France/UK)</li>
+                <li><strong>Saab</strong> - MAW-300 (Sweden/South Africa)</li>
+                <li><strong>Aselsan</strong> - MWS / YILDIRIM DIRCM (Turkey)</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Geographic Segmentation</h3>
+            <ul>
+                <li><strong>North America</strong> - 35%+ market share (leader)</li>
+                <li><strong>Europe</strong> - Significant market, NATO focus</li>
+                <li><strong>Asia-Pacific</strong> - Fast growth, CAGR 8.4%</li>
+                <li><strong>Middle East</strong> - Growing demand due to threats</li>
+            </ul>
+        </div>
+    </div>
+    <span class="slide-num">2</span>
+</div>
+
+<!-- SLIDE 3: Technology Landscape -->
+<div class="slide">
+    <h2>Technology Landscape - Sensor Types</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3><span class="tag tag-uv">UV</span> Ultraviolet</h3>
+            <h4>Solar-Blind UV Detection</h4>
+            <ul>
+                <li>Detects UV radiation from missile motor plume</li>
+                <li>Advantage: Low false alarm rate (Solar-Blind)</li>
+                <li>Disadvantage: Limited detection range, may miss cruise phase</li>
+                <li>Disadvantage: Reduced performance in adverse weather</li>
+                <li><strong>Examples:</strong> MILDS AN/AAR-60, Aselsan MWS</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><span class="tag tag-ir">MWIR</span> Mid-Wave Infrared</h3>
+            <h4>Mid-Wave Infrared Imaging</h4>
+            <ul>
+                <li>High-resolution infrared imaging</li>
+                <li>Advantage: Longer detection range, better atmospheric transmission</li>
+                <li>Advantage: Tracks missile through flight phase</li>
+                <li>Disadvantage: Requires cooling, higher complexity</li>
+                <li><strong>Examples:</strong> PAWS-2 HR, Thales Elix-IR, Rafael Sea Spotter</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><span class="tag tag-multi">2-Color / Multi</span> Multi-Spectral</h3>
+            <h4>Two-Color & Multi-Spectral Detection</h4>
+            <ul>
+                <li>Combines two or more wavelength bands</li>
+                <li>Advantage: Dramatic reduction in False Alarms</li>
+                <li>Advantage: ML-enhanced threat classification</li>
+                <li>Disadvantage: High cost, integration complexity</li>
+                <li><strong>Examples:</strong> BAE 2CAWS, AN/AAR-57 CMWS advanced</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Technology Evolution</h3>
+    <div class="flow-row">
+        <div class="flow-box">
+            <strong>Gen 1</strong><br>UV Point Detector<br><span style="color:#8899bb">1990s-2000s</span>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box">
+            <strong>Gen 2</strong><br>IR Imaging Sensor<br><span style="color:#8899bb">2005-2015</span>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box">
+            <strong>Gen 3</strong><br>Multi-Spectral + AI/ML<br><span style="color:#8899bb">2015-2025</span>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box" style="border-color: #00cc66;">
+            <strong>Gen 4</strong><br>Distributed Aperture<br>+ Full SA<br><span style="color:#66dd88">2025+</span>
+        </div>
+    </div>
+    <span class="slide-num">3</span>
+</div>
+
+<!-- SLIDE 4: Competitor Table -->
+<div class="slide">
+    <h2>Competitor Analysis - Key Systems</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>System</th>
+                <th>Manufacturer</th>
+                <th>Country</th>
+                <th>Technology</th>
+                <th>Platforms</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>AN/AAR-57 CMWS</strong></td>
+                <td>BAE Systems</td>
+                <td>USA</td>
+                <td><span class="tag tag-uv">UV</span> <span class="tag tag-multi">2-Color</span></td>
+                <td><span class="tag tag-platform">Helicopters</span> <span class="tag tag-platform">Transport</span></td>
+                <td>3,000+ systems, 4M+ combat hours</td>
+            </tr>
+            <tr>
+                <td><strong>PAWS-2 HR</strong></td>
+                <td>Elbit Systems</td>
+                <td>Israel</td>
+                <td><span class="tag tag-ir">MWIR</span></td>
+                <td><span class="tag tag-platform">Fighter</span> <span class="tag tag-platform">Helo</span> <span class="tag tag-platform">Transport</span></td>
+                <td>New (2025), 5MP+ resolution</td>
+            </tr>
+            <tr style="background: rgba(0, 150, 200, 0.08);">
+                <td><strong>Sea Spotter</strong></td>
+                <td><strong>Rafael</strong></td>
+                <td>Israel</td>
+                <td><span class="tag tag-ir">IR Staring</span></td>
+                <td><span class="tag tag-platform">Naval</span></td>
+                <td>Operational, 20+ countries</td>
+            </tr>
+            <tr style="background: rgba(0, 150, 200, 0.08);">
+                <td><strong>Sky Shield EW Pod</strong></td>
+                <td><strong>Rafael</strong></td>
+                <td>Israel</td>
+                <td><span class="tag tag-rafael">AESA EW</span></td>
+                <td><span class="tag tag-platform">Fighter</span> <span class="tag tag-platform">Transport</span></td>
+                <td>Advanced, with Hensoldt partnership</td>
+            </tr>
+            <tr>
+                <td><strong>MILDS AN/AAR-60</strong></td>
+                <td>Hensoldt</td>
+                <td>Germany</td>
+                <td><span class="tag tag-uv">UV</span></td>
+                <td><span class="tag tag-platform">Helo</span> <span class="tag tag-platform">Transport</span> <span class="tag tag-platform">F-16</span></td>
+                <td>Operational, 9,600+ hours/sensor</td>
+            </tr>
+            <tr>
+                <td><strong>Elix-IR / MIRAS</strong></td>
+                <td>Thales</td>
+                <td>France/UK</td>
+                <td><span class="tag tag-ir">MWIR</span> <span class="tag tag-multi">Multi</span></td>
+                <td><span class="tag tag-platform">A400M</span> <span class="tag tag-platform">Helo</span></td>
+                <td>Combat-proven, French AF</td>
+            </tr>
+            <tr>
+                <td><strong>MAW-300</strong></td>
+                <td>Saab</td>
+                <td>Sweden/SA</td>
+                <td><span class="tag tag-ir">IR</span></td>
+                <td><span class="tag tag-platform">Tornado</span> <span class="tag tag-platform">Helo</span></td>
+                <td>$48M Luftwaffe contract</td>
+            </tr>
+            <tr>
+                <td><strong>AN/AAQ-24 NEMESIS</strong></td>
+                <td>Northrop Grumman</td>
+                <td>USA</td>
+                <td><span class="tag tag-ir">IR</span> <span class="tag tag-multi">2-Color</span></td>
+                <td><span class="tag tag-platform">Heavy Transport</span> <span class="tag tag-platform">Helo</span></td>
+                <td>LAIRCM/DIRCM integrated</td>
+            </tr>
+            <tr>
+                <td><strong>C-MUSIC / J-MUSIC</strong></td>
+                <td>Elbit Systems</td>
+                <td>Israel</td>
+                <td><span class="tag tag-ir">IR (PAWS)</span></td>
+                <td><span class="tag tag-platform">Civil Aviation</span> <span class="tag tag-platform">Transport</span></td>
+                <td>Operational, 2.7m self-contained pod</td>
+            </tr>
+            <tr>
+                <td><strong>YILDIRIM DIRCM</strong></td>
+                <td>Aselsan</td>
+                <td>Turkey</td>
+                <td><span class="tag tag-uv">UV</span></td>
+                <td><span class="tag tag-platform">Helo</span></td>
+                <td>Development/Operational</td>
+            </tr>
+        </tbody>
+    </table>
+    <span class="slide-num">4</span>
+</div>
+
+<!-- SLIDE 5: Performance Comparison -->
+<div class="slide">
+    <h2>Performance Comparison by Threat Type</h2>
+
+    <h3>Detection Range by Threat Category</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>System</th>
+                <th>Sensor Type</th>
+                <th>MANPADS (3-6 km)</th>
+                <th>SAM (10-50+ km)</th>
+                <th>AAM</th>
+                <th>RPG/Small Arms (HFI)</th>
+                <th>Reaction Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>PAWS-2 HR</strong></td>
+                <td>MWIR 5MP+</td>
+                <td class="perf-cell perf-high">Excellent - Long range early detection</td>
+                <td class="perf-cell perf-high">Excellent</td>
+                <td class="perf-cell perf-high">Yes</td>
+                <td class="perf-cell perf-high">Yes (Helo mode)</td>
+                <td class="perf-cell perf-high">&lt;1 sec</td>
+            </tr>
+            <tr>
+                <td><strong>BAE 2CAWS</strong></td>
+                <td>2-Color Multi</td>
+                <td class="perf-cell perf-high">Excellent - ML-enhanced</td>
+                <td class="perf-cell perf-high">Excellent</td>
+                <td class="perf-cell perf-high">Yes</td>
+                <td class="perf-cell perf-high">Yes</td>
+                <td class="perf-cell perf-high">&lt;1 sec</td>
+            </tr>
+            <tr>
+                <td><strong>AN/AAR-57 CMWS</strong></td>
+                <td>EO/UV</td>
+                <td class="perf-cell perf-high">Excellent - combat proven</td>
+                <td class="perf-cell perf-med">Good</td>
+                <td class="perf-cell perf-med">Limited</td>
+                <td class="perf-cell perf-high">Yes (Gen3)</td>
+                <td class="perf-cell perf-high">&lt;1 sec</td>
+            </tr>
+            <tr>
+                <td><strong>Elix-IR</strong></td>
+                <td>MWIR Wide-Spectrum</td>
+                <td class="perf-cell perf-high">Excellent - long range</td>
+                <td class="perf-cell perf-high">Excellent</td>
+                <td class="perf-cell perf-med">Good</td>
+                <td class="perf-cell perf-high">Yes</td>
+                <td class="perf-cell perf-high">&lt;1 sec</td>
+            </tr>
+            <tr style="background: rgba(0, 150, 200, 0.08);">
+                <td><strong>Rafael Sea Spotter</strong></td>
+                <td>IR Staring (Naval)</td>
+                <td class="perf-cell perf-na">N/A (Naval)</td>
+                <td class="perf-cell perf-high">SSM/ASM - Excellent</td>
+                <td class="perf-cell perf-na">N/A</td>
+                <td class="perf-cell perf-na">N/A</td>
+                <td class="perf-cell perf-high">Continuous stare</td>
+            </tr>
+            <tr>
+                <td><strong>MILDS AN/AAR-60</strong></td>
+                <td>UV Solar-Blind</td>
+                <td class="perf-cell perf-med">Good - motor phase only</td>
+                <td class="perf-cell perf-low">Limited range</td>
+                <td class="perf-cell perf-low">Limited</td>
+                <td class="perf-cell perf-med">Block 2 only</td>
+                <td class="perf-cell perf-high">&lt;1 sec</td>
+            </tr>
+            <tr>
+                <td><strong>MAW-300</strong></td>
+                <td>IR</td>
+                <td class="perf-cell perf-med">Good</td>
+                <td class="perf-cell perf-med">Good</td>
+                <td class="perf-cell perf-med">Limited</td>
+                <td class="perf-cell perf-low">No</td>
+                <td class="perf-cell perf-med">Standard</td>
+            </tr>
+            <tr>
+                <td><strong>Aselsan MWS</strong></td>
+                <td>UV Passive</td>
+                <td class="perf-cell perf-med">Good</td>
+                <td class="perf-cell perf-low">Limited</td>
+                <td class="perf-cell perf-low">Limited</td>
+                <td class="perf-cell perf-low">No</td>
+                <td class="perf-cell perf-med">Standard</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Performance Parameters</h3>
+    <div class="three-col">
+        <div class="card">
+            <h4>False Alarm Rate</h4>
+            <ul>
+                <li><strong>Sea Spotter (Rafael):</strong> <span class="perf-high">~1 per 24 hours</span> (staring sensor + ML)</li>
+                <li><strong>BAE 2CAWS:</strong> <span class="perf-high">Ultra-low</span> (2-color + ML)</li>
+                <li><strong>PAWS-2 HR:</strong> <span class="perf-high">Very low</span> (5MP discrimination)</li>
+                <li><strong>MILDS:</strong> <span class="perf-high">Very low</span> (UV solar-blind advantage)</li>
+                <li><strong>Legacy UV:</strong> <span class="perf-med">Moderate</span> (clutter-dependent)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Coverage & Angular Accuracy</h4>
+            <ul>
+                <li><strong>PAWS-2:</strong> Spherical coverage, high accuracy</li>
+                <li><strong>CMWS:</strong> 360 coverage (6 sensors), precise bearing</li>
+                <li><strong>Sea Spotter:</strong> 360 continuous stare (naval)</li>
+                <li><strong>MILDS:</strong> Spherical (4-6 sensors), high accuracy</li>
+                <li><strong>Aselsan:</strong> 360 (4 sensors) / 4pi (6 sensors)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>MTBF & Reliability</h4>
+            <ul>
+                <li><strong>CMWS:</strong> <span class="perf-high">4M+ combat hours proven</span></li>
+                <li><strong>MILDS:</strong> <span class="perf-high">9,600+ hours/sensor</span></li>
+                <li><strong>PAWS:</strong> Field-proven on F-16, helicopters</li>
+                <li><strong>Sea Spotter:</strong> 20+ countries, operational</li>
+                <li><strong>Elix-IR:</strong> NATO Vidsel trials verified</li>
+            </ul>
+        </div>
+    </div>
+    <span class="slide-num">5</span>
+</div>
+
+<!-- SLIDE 6: Threat vs. Detection Range Matrix -->
+<div class="slide">
+    <h2>Threat Detection Performance Matrix</h2>
+
+    <h3>MANPADS Threat Envelope vs. MWS Detection</h3>
+    <div class="highlight">
+        <strong>Key challenge:</strong> MANPADS effective engagement range is 3-6 km, with kill envelope at 1-3 km.
+        MWS detection range of the same order (3-5 km for UV, potentially longer for IR) means reaction time is critical.
+        Every additional kilometer of detection range adds ~2-3 seconds to reaction time.
+    </div>
+
+    <div class="two-col">
+        <div>
+            <h3>UV-Based Systems (Gen 1-2)</h3>
+            <ul>
+                <li><strong>Detection:</strong> Motor burn phase only (~3-5 km)</li>
+                <li><strong>Limitation:</strong> Cannot track after motor burnout</li>
+                <li><strong>Limitation:</strong> Atmospheric absorption reduces range in humid/polluted conditions</li>
+                <li><strong>Advantage:</strong> Solar-blind = lower false alarms from sun/reflections</li>
+                <li><strong>Warning time:</strong> 3-6 seconds (MANPADS), marginal for DIRCM cueing</li>
+            </ul>
+        </div>
+        <div>
+            <h3>MWIR-Based Systems (Gen 3-4)</h3>
+            <ul>
+                <li><strong>Detection:</strong> Motor + flight phase (5-15+ km estimated)</li>
+                <li><strong>Advantage:</strong> Better atmospheric transmission</li>
+                <li><strong>Advantage:</strong> Continuous tracking through flight</li>
+                <li><strong>Advantage:</strong> Precise angular information for DIRCM</li>
+                <li><strong>Warning time:</strong> 5-10+ seconds (MANPADS), sufficient for DIRCM</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Threat Type Characteristics</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Threat Type</th>
+                <th>Range</th>
+                <th>Speed</th>
+                <th>IR Signature</th>
+                <th>Detection Difficulty</th>
+                <th>Best MWS Approach</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>MANPADS (IR)</strong></td>
+                <td>3-6 km</td>
+                <td>Mach 1.5-2</td>
+                <td>High (motor)</td>
+                <td class="perf-med">Medium - short warning time</td>
+                <td>MWIR imaging for max range</td>
+            </tr>
+            <tr>
+                <td><strong>Short Range SAM</strong></td>
+                <td>10-25 km</td>
+                <td>Mach 2-3</td>
+                <td>Very High</td>
+                <td class="perf-high">Easy to detect</td>
+                <td>Any modern MWS</td>
+            </tr>
+            <tr>
+                <td><strong>Medium Range SAM</strong></td>
+                <td>25-100 km</td>
+                <td>Mach 3-6</td>
+                <td>Very High</td>
+                <td class="perf-high">Easy to detect</td>
+                <td>Multi-spectral for classification</td>
+            </tr>
+            <tr>
+                <td><strong>AAM (IR)</strong></td>
+                <td>10-100+ km</td>
+                <td>Mach 3-4</td>
+                <td>High</td>
+                <td class="perf-med">Medium - closing speed</td>
+                <td>MWIR + DAS for rear hemisphere</td>
+            </tr>
+            <tr>
+                <td><strong>RPG / Small Arms</strong></td>
+                <td>0.3-1 km</td>
+                <td>Low</td>
+                <td>Low/Flash</td>
+                <td class="perf-low">Hard - minimal signature</td>
+                <td>HFI-capable MWIR (PAWS-2, 2CAWS)</td>
+            </tr>
+            <tr>
+                <td><strong>Sea-Skimming ASM</strong></td>
+                <td>10-300 km</td>
+                <td>Mach 0.8-3</td>
+                <td>Medium-High</td>
+                <td class="perf-med">Medium - clutter</td>
+                <td>Staring IR (Rafael Sea Spotter)</td>
+            </tr>
+        </tbody>
+    </table>
+    <span class="slide-num">6</span>
+</div>
+
+<!-- SLIDE 7: Rafael Deep Dive -->
+<div class="slide">
+    <h2>Rafael Advanced Defense Systems - Product Portfolio</h2>
+
+    <div class="rafael-highlight" style="font-size: 1.1em; margin-bottom: 20px;">
+        <strong>Rafael</strong> is Israel's national EW center of excellence and operator of Israel's national EW range.
+        With world-leading expertise in electro-optics, EW, and air defense. Toplite EOS deployed in 20+ countries.
+        Litening pods: 1,900+ units, 27 air forces, 2M+ flight hours.
+    </div>
+
+    <div class="card-grid">
+        <div class="card" style="border-color: rgba(0, 200, 255, 0.4);">
+            <div class="company">RAFAEL | Naval EW/EO</div>
+            <div class="system-name">Sea Spotter - Naval IRST</div>
+            <ul>
+                <li><strong>Type:</strong> 3rd gen fully staring naval IRST</li>
+                <li><strong>Sensor:</strong> Continuous IR staring (not scanning)</li>
+                <li><strong>Detection:</strong> SSM, ASM, sea-skimming missiles, aircraft, submarines, small craft</li>
+                <li><strong>False Alarm:</strong> ~1 per 24 hours (ML-based target acquisition)</li>
+                <li><strong>Coverage:</strong> 360 continuous passive</li>
+                <li><strong>Advantage:</strong> Completely passive - "sees but isn't seen"</li>
+                <li><strong>Status:</strong> Operational, multiple navies worldwide</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(0, 200, 255, 0.4);">
+            <div class="company">RAFAEL | Airborne EW</div>
+            <div class="system-name">Sky Shield - EW Escort Jammer Pod</div>
+            <ul>
+                <li><strong>Type:</strong> Smart airborne EW Escort Jammer & Electronic Attack</li>
+                <li><strong>Technology:</strong> AESA (Active Electronically Scanned Array)</li>
+                <li><strong>Capability:</strong> Simultaneous jamming & deception against multiple threats</li>
+                <li><strong>Coverage:</strong> High frequency ranges, high ERP</li>
+                <li><strong>Partnership:</strong> Integrated with Hensoldt for German Typhoon fleet</li>
+                <li><strong>Status:</strong> Advanced, joint Rafael-Hensoldt offering</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(0, 200, 255, 0.4);">
+            <div class="company">RAFAEL | Towed Decoy</div>
+            <div class="system-name">X-Guard - Fiber-Optic Towed Decoy</div>
+            <ul>
+                <li><strong>Type:</strong> Independent towed RF decoy</li>
+                <li><strong>Protection:</strong> Against radar-guided AAM and SAM</li>
+                <li><strong>Configuration:</strong> Pod-mounted on hardpoint</li>
+                <li><strong>Feature:</strong> Autonomous operation, fiber-optic tether</li>
+                <li><strong>Platforms:</strong> Fighter jets, multi-role aircraft</li>
+                <li><strong>Status:</strong> Operational</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(0, 200, 255, 0.4);">
+            <div class="company">RAFAEL | ISR & Targeting</div>
+            <div class="system-name">Litening 5 & Toplite EOS</div>
+            <ul>
+                <li><strong>Litening 5:</strong> World's most popular targeting pod</li>
+                <li><strong>Units:</strong> 1,900+ pods, 27 air forces, 25+ platforms</li>
+                <li><strong>EO+ Features:</strong> EW, Comm, IRST capabilities added</li>
+                <li><strong>Toplite:</strong> Multi-sensor stabilized EO/ISR, 20+ countries</li>
+                <li><strong>ImiLite:</strong> Multi-sensor C2 for intelligence fusion</li>
+                <li><strong>Relevance:</strong> EO/IR expertise directly applicable to MWS</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="rafael-highlight">
+        <h4>Rafael's Strategic Position for MWS Market</h4>
+        <p>Rafael holds unique capabilities: national EW expertise, advanced IR/EO sensors (Toplite, Litening, Sea Spotter),
+        AESA EW technology (Sky Shield), and towed decoy countermeasures (X-Guard). The combination of Sea Spotter's
+        staring IR detection (with ML-based 1/24hr false alarm rate) and Sky Shield's AESA jamming represents a
+        comprehensive detect-and-defeat architecture applicable to both naval and airborne domains.</p>
+    </div>
+    <span class="slide-num">7</span>
+</div>
+
+<!-- SLIDE 8: BAE Systems Deep Dive -->
+<div class="slide">
+    <h2>BAE Systems - AN/AAR-57 CMWS</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Overview</h3>
+            <ul>
+                <li><strong>Full Name:</strong> Common Missile Warning System</li>
+                <li><strong>Configuration:</strong> 6 EO sensors + internal ECU</li>
+                <li><strong>Technology:</strong> Fully passive - detects EO signature of missile plume</li>
+                <li><strong>Coverage:</strong> 360 full coverage</li>
+                <li><strong>Maintenance:</strong> LRU replaced in 3-5 min, no special tools</li>
+            </ul>
+
+            <h3>Capabilities</h3>
+            <ul>
+                <li>Wide range of IR-guided missile detection</li>
+                <li>Crew warning + automatic countermeasure dispensing</li>
+                <li>Hostile Fire Indication (HFI)</li>
+                <li>Data recording for post-mission analysis</li>
+                <li>Compatible with Chaff, Flare, RF Decoy, DIRCM</li>
+            </ul>
+
+            <h3>Combat Record</h3>
+            <div class="highlight">
+                Following the loss of a CH-47 Chinook to an enemy missile in November 2003,
+                the first CMWS was installed within a year. The rate of aircraft losses to shoulder-launched
+                missiles decreased as rapidly as systems were fielded. CMWS has saved dozens of lives
+                in Iraq and Afghanistan.
+            </div>
+        </div>
+        <div>
+            <h3>Operational Data</h3>
+            <div class="stat-box" style="margin-bottom: 15px;">
+                <div class="number">3,000+</div>
+                <div class="label">Systems delivered</div>
+            </div>
+            <div class="stat-box" style="margin-bottom: 15px;">
+                <div class="number">40+</div>
+                <div class="label">Platform types</div>
+            </div>
+            <div class="stat-box" style="margin-bottom: 15px;">
+                <div class="number">4M+</div>
+                <div class="label">Combat hours</div>
+            </div>
+
+            <h3>Latest - 2CAWS (2024)</h3>
+            <div class="highlight">
+                October 2024: BAE delivered 400 2-Color Advanced Warning Systems (2CAWS)
+                to the U.S. Army under LIMWS program. Uses multi-spectral sensors,
+                high-speed digital backbone, and ML algorithms for threat detection and DIRCM/CM cueing.
+            </div>
+
+            <h3>Recent Contract (Feb 2026)</h3>
+            <div class="opportunity">
+                BAE awarded $137M contract to deliver CMWS to allied nations via FMS.
+                Demonstrates continued global demand for the proven platform.
+            </div>
+        </div>
+    </div>
+    <span class="slide-num">8</span>
+</div>
+
+<!-- SLIDE 9: Elbit PAWS-2 -->
+<div class="slide">
+    <h2>Elbit Systems - PAWS-2 HR & MUSIC Family</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>PAWS-2 High Resolution (2025)</h3>
+            <ul>
+                <li><strong>Technology:</strong> New-gen cooled MWIR sensor</li>
+                <li><strong>Resolution:</strong> Over 5 megapixels</li>
+                <li><strong>Sampling Rate:</strong> Exceptionally high</li>
+                <li><strong>Detection:</strong> SAM, AAM, MANPADS - seeker-agnostic</li>
+                <li><strong>HFI:</strong> Small arms, RPG, ATGM (helicopter mode)</li>
+                <li><strong>Discrimination:</strong> Direct threat vs. non-targeted launch</li>
+                <li><strong>Launched:</strong> Paris Air Show 2025</li>
+            </ul>
+
+            <h3>Key Advantages</h3>
+            <div class="opportunity">
+                MWIR 5MP+ resolution enables: precision tracking, real-time threat classification,
+                and rich SA imagery beyond pure MWS - also functions as SA sensor.
+                Significantly increased detection ranges for all threat types.
+            </div>
+
+            <h3>Customer Base</h3>
+            <ul>
+                <li>PAWS on U.S. F-16 (National Guard & Reserve)</li>
+                <li>Israel Air Force F-16 fleet</li>
+                <li>NATO A330 MRTT tankers</li>
+                <li>Undisclosed Asia-Pacific helicopter fleet</li>
+            </ul>
+        </div>
+        <div>
+            <h3>MUSIC DIRCM Family</h3>
+            <table>
+                <tr><th>System</th><th>Target</th><th>Configuration</th></tr>
+                <tr><td><strong>C-MUSIC</strong></td><td>Large passenger jets</td><td>External pod 2.7m</td></tr>
+                <tr><td><strong>J-MUSIC</strong></td><td>Military jet aircraft</td><td>Combat-adapted</td></tr>
+                <tr><td><strong>Mini-MUSIC</strong></td><td>Helicopters</td><td>Compact</td></tr>
+            </table>
+
+            <h3>Recent Deals</h3>
+            <ul>
+                <li><strong>$260M</strong> - Airbus contract for J-MUSIC on German AF A400M (July 2025)</li>
+                <li>C-MUSIC certified by civil aviation authorities</li>
+                <li>PAWS serves as MWS in all MUSIC systems</li>
+            </ul>
+
+            <h3>Performance Edge</h3>
+            <div class="highlight">
+                PAWS-2 HR provides long-range detection and precise launch point geolocation,
+                improved threat discrimination and classification,
+                and optimized countermeasure timing - reducing false alarm rates and operational distractions.
+            </div>
+        </div>
+    </div>
+    <span class="slide-num">9</span>
+</div>
+
+<!-- SLIDE 10: European Players -->
+<div class="slide">
+    <h2>European & Turkish Players</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="company">Hensoldt | Germany</div>
+            <div class="system-name">MILDS AN/AAR-60</div>
+            <ul>
+                <li><strong>Technology:</strong> UV Solar-Blind imaging</li>
+                <li><strong>Reliability:</strong> 9,600+ flight hours/sensor</li>
+                <li><strong>Coverage:</strong> Spherical via multiple sensors</li>
+                <li><strong>Installation:</strong> Pylons, pods, or fuselage</li>
+                <li><strong>Platforms:</strong> Tiger, NH90, CH-53, CH-47, C-130</li>
+                <li><strong>Variants:</strong>
+                    <ul>
+                        <li>Block 2 - HFI + in-sensor recording</li>
+                        <li>MILDS F - Fighter (Belgian F-16)</li>
+                    </ul>
+                </li>
+                <li><strong>Recent:</strong> 35 sensors for German C-130J fleet</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="company">Thales | France/UK</div>
+            <div class="system-name">Elix-IR & MIRAS</div>
+            <ul>
+                <li><strong>Elix-IR:</strong> Multi-function IR sensor</li>
+                <li><strong>Capability:</strong> MAW + HFI + SA from single sensor</li>
+                <li><strong>Technology:</strong> Wide-spectrum color IR sensing</li>
+                <li><strong>Advantage:</strong> Better MWIR atmospheric transmission vs UV</li>
+                <li><strong>MIRAS:</strong> Spherical coverage, combat-proven on French A400M</li>
+                <li><strong>Integration:</strong> Leonardo Miysis DIRCM + Elix-IR</li>
+                <li><strong>Validation:</strong> NATO Vidsel trials - multi-missile defeat</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="company">Saab | Sweden</div>
+            <div class="system-name">MAW-300</div>
+            <ul>
+                <li><strong>Origin:</strong> Joint Sweden-South Africa development</li>
+                <li><strong>Config:</strong> Wing-mounted pod</li>
+                <li><strong>Integration:</strong> Integral CM dispenser</li>
+                <li><strong>Deals:</strong> $48M for Luftwaffe Tornado</li>
+                <li><strong>DIRCM:</strong> Paired with Leonardo Miysis</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="company">Aselsan | Turkey</div>
+            <div class="system-name">MWS + YILDIRIM DIRCM</div>
+            <ul>
+                <li><strong>MWS:</strong> Passive UV technology</li>
+                <li><strong>Coverage:</strong> 360 (4 sensors), 4pi (6 sensors)</li>
+                <li><strong>Program:</strong> HEWS for Turkish military helicopters</li>
+                <li><strong>YILDIRIM:</strong> DIRCM with twin-head turret - sensor + laser</li>
+                <li><strong>Trend:</strong> Growing independent Turkish player</li>
+            </ul>
+        </div>
+    </div>
+    <span class="slide-num">10</span>
+</div>
+
+<!-- SLIDE 11: Customer Feedback & Operational Experience -->
+<div class="slide">
+    <h2>Customer Feedback & Operational Experience</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>BAE Systems CMWS</h3>
+            <div class="customer-quote">
+                "Following the November 2003 CH-47 loss, the first CMWS system was installed in under a year.
+                The rate of aircraft lost to shoulder-launched missiles decreased as quickly as systems were fielded."
+                <div class="source">- U.S. Army PEO IEW&S</div>
+            </div>
+            <div class="customer-quote">
+                "CMWS has saved dozens of lives over the years, with 4 million+ combat theater flight hours
+                proving its adaptability and versatility in various operational situations."
+                <div class="source">- BAE Systems / U.S. Army operational reports</div>
+            </div>
+            <div class="customer-quote">
+                "$137M FMS contract awarded (February 2026) to deliver CMWS to allied nations -
+                demonstrating continued global confidence in the platform."
+                <div class="source">- U.S. Army FMS program</div>
+            </div>
+
+            <h3>Elbit PAWS / MUSIC</h3>
+            <div class="customer-quote">
+                "PAWS selected for U.S. National Guard and Reserve F-16 fleet upgrade -
+                preferred over competing UV systems for its MWIR performance advantage."
+                <div class="source">- U.S. Air Force F-16 modernization</div>
+            </div>
+            <div class="customer-quote">
+                "Airbus Defence awarded $260M contract for J-MUSIC DIRCM (incorporating PAWS MWS)
+                to protect German Air Force A400M transport fleet."
+                <div class="source">- Airbus Defence & Space, July 2025</div>
+            </div>
+            <div class="customer-quote">
+                "C-MUSIC is the only civil aviation authority-certified laser DIRCM system
+                operational on commercial airline fleets worldwide."
+                <div class="source">- Multiple civil aviation authorities</div>
+            </div>
+        </div>
+        <div>
+            <h3>Thales Elix-IR</h3>
+            <div class="customer-quote">
+                "During NATO trials at Vidsel Test Range (Sweden), Elix-IR supported successful detection
+                and defeat of multiple IR-guided missiles fired simultaneously, paired with Miysis DIRCM."
+                <div class="source">- UK MOD / NATO trial results</div>
+            </div>
+            <div class="customer-quote">
+                "Elix-IR developed in partnership with UK MOD, DE&S, RAF, Dstl - reflecting
+                confidence of one of the world's most demanding defense establishments."
+                <div class="source">- UK Defence procurement</div>
+            </div>
+
+            <h3>Hensoldt MILDS</h3>
+            <div class="customer-quote">
+                "MILDS AN/AAR-60 selected as standard missile warning device for helicopters and transport aircraft
+                worldwide - deployed on Tiger, NH90, CH-53, CH-47, C-130."
+                <div class="source">- Multiple NATO air forces</div>
+            </div>
+            <div class="customer-quote">
+                "Belgian Air Force chose MILDS F variant for F-16 fighter aircraft self-protection upgrade."
+                <div class="source">- Belgian Ministry of Defence</div>
+            </div>
+
+            <h3>Rafael Sea Spotter</h3>
+            <div class="customer-quote">
+                "Sea Spotter's staring sensor technology with ML-based target acquisition achieves
+                false alarm rate of approximately 1 per 24-hour period - industry-leading performance."
+                <div class="source">- Naval operational feedback, 20+ countries</div>
+            </div>
+
+            <h3>Saab MAW-300</h3>
+            <div class="customer-quote">
+                "German Luftwaffe awarded $48M contract for MAW-300 integration on Tornado fleet,
+                demonstrating trust in the joint Swedish-South African system."
+                <div class="source">- Luftwaffe procurement</div>
+            </div>
+        </div>
+    </div>
+    <span class="slide-num">11</span>
+</div>
+
+<!-- SLIDE 12: Detailed Capability Comparison -->
+<div class="slide">
+    <h2>Detailed Capability Comparison</h2>
+
+    <h3>Sensor Resolution (Relative)</h3>
+    <div style="margin: 10px 0;">
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">PAWS-2 HR</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:95%; background: linear-gradient(90deg, #0066cc, #00aaff);">5MP+ MWIR Imaging</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">BAE 2CAWS</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:85%; background: linear-gradient(90deg, #0066cc, #00aaff);">2-Color Multi-Spectral</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Elix-IR</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:80%; background: linear-gradient(90deg, #0066cc, #00aaff);">Wide-Spectrum Color IR</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Rafael Sea Spotter</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:82%; background: linear-gradient(90deg, #0088aa, #00ccdd);">Staring IR + ML (Naval)</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">AN/AAR-57 CMWS</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:70%; background: linear-gradient(90deg, #0066cc, #00aaff);">EO Multi-Sensor</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">MILDS AN/AAR-60</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:55%; background: linear-gradient(90deg, #6633cc, #9966ff);">UV Imaging</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Aselsan MWS</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:40%; background: linear-gradient(90deg, #6633cc, #9966ff);">UV Point Detector</div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Platform Coverage & Installed Base</h3>
+    <div style="margin: 10px 0;">
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">AN/AAR-57 CMWS</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:95%; background: linear-gradient(90deg, #cc6600, #ff9933);">3,000+ systems, 40+ platforms</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">MILDS AN/AAR-60</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:75%; background: linear-gradient(90deg, #cc6600, #ff9933);">NATO standard, helicopters + transport</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Elbit PAWS/MUSIC</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:65%; background: linear-gradient(90deg, #cc6600, #ff9933);">Military + civil + export</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Rafael (EO/EW)</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:60%; background: linear-gradient(90deg, #0088aa, #00ccdd);">1,900+ Litening, 20+ countries Sea Spotter</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; margin:6px 0;">
+            <span style="width:200px; text-align:left;">Thales Elix-IR</span>
+            <div class="bar-container" style="flex:1;">
+                <div class="bar" style="width:50%; background: linear-gradient(90deg, #cc6600, #ff9933);">French A400M + customers</div>
+            </div>
+        </div>
+    </div>
+    <span class="slide-num">12</span>
+</div>
+
+<!-- SLIDE 13: Trends -->
+<div class="slide">
+    <h2>Key Trends & Market Drivers</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>1. AI/ML in Threat Processing</h3>
+            <p>Hardware-embedded ML algorithms for real-time threat classification,
+            False Alarm Rate reduction, and countermeasure response optimization.
+            BAE 2CAWS and Rafael Sea Spotter lead this trend.</p>
+        </div>
+        <div class="card">
+            <h3>2. Distributed Aperture Systems</h3>
+            <p>Transition from separate sensors to integrated DAS providing
+            full spherical coverage + SA + MWS + HFI in one architecture.</p>
+        </div>
+        <div class="card">
+            <h3>3. MWS-DIRCM Integration</h3>
+            <p>MWS becoming integral to DIRCM systems.
+            MWS directly feeds the laser Pointer-Tracker.
+            Examples: C-MUSIC, LAIRCM, Miysis+MAW-300.</p>
+        </div>
+        <div class="card">
+            <h3>4. Multi-Mission Sensors</h3>
+            <p>Advanced MWS sensors also serving HFI (hostile fire),
+            ISR, and SA. Elix-IR and PAWS-2 lead here.</p>
+        </div>
+        <div class="card">
+            <h3>5. Asia-Pacific Market Growth</h3>
+            <p>CAGR 8.4% - the highest. Air force modernization,
+            regional tensions, and import substitution drive growing procurement.</p>
+        </div>
+        <div class="card">
+            <h3>6. Civil Aviation Protection</h3>
+            <p>MANPADS threat to civil aviation drives significant niche market.
+            Elbit C-MUSIC is the leading certified solution.</p>
+        </div>
+    </div>
+    <span class="slide-num">13</span>
+</div>
+
+<!-- SLIDE 14: Physical Sensor Specifications -->
+<div class="slide">
+    <h2>Sensor Physical & Performance Specifications</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>PAWS-2 HR<br>(Elbit)</th>
+                <th>AN/AAR-57 CMWS<br>(BAE)</th>
+                <th>MILDS AN/AAR-60<br>(Hensoldt)</th>
+                <th>Elix-IR<br>(Thales)</th>
+                <th>Sea Spotter<br>(Rafael)</th>
+                <th>MAW-300<br>(Saab)</th>
+                <th>Aselsan MWS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Spectral Band</strong></td>
+                <td class="perf-high">MWIR (3-5 um)</td>
+                <td>UV + IR (up to 4 um)</td>
+                <td class="perf-cell">UV Solar-Blind</td>
+                <td class="perf-high">MWIR Wide-Spectrum</td>
+                <td class="perf-high">MWIR (3-5 um)</td>
+                <td>IR</td>
+                <td>UV Solar-Blind</td>
+            </tr>
+            <tr>
+                <td><strong>Detector Type</strong></td>
+                <td>Cooled MWIR FPA</td>
+                <td>Staring FPA</td>
+                <td>UV Imaging Sensor</td>
+                <td>Cooled Color IR FPA</td>
+                <td>InSb Staring FPA (cooled)</td>
+                <td>Image Intensifier + FPA</td>
+                <td>CMOS UV detector</td>
+            </tr>
+            <tr>
+                <td><strong>Resolution</strong></td>
+                <td class="perf-high">5+ Megapixels</td>
+                <td>Classified</td>
+                <td>Imaging (classified)</td>
+                <td>High-res color IR</td>
+                <td>Staring array (classified)</td>
+                <td>Photon-counting FPA</td>
+                <td>Standard</td>
+            </tr>
+            <tr>
+                <td><strong>FOV per Sensor</strong></td>
+                <td>~90-120 (est.)</td>
+                <td>~90-120 (4-6 for 360)</td>
+                <td>~90-120 (4-6 for spherical)</td>
+                <td>Wide-angle</td>
+                <td>360 continuous stare</td>
+                <td>~100 cone (4 for 360)</td>
+                <td>~90 (4 for 360)</td>
+            </tr>
+            <tr>
+                <td><strong>Sensors for Full Coverage</strong></td>
+                <td>4-6</td>
+                <td>4 (360 Az), 6 (spherical)</td>
+                <td>4-6</td>
+                <td>Multiple</td>
+                <td>2 (staring units)</td>
+                <td>4</td>
+                <td>4 (360) / 6 (4pi)</td>
+            </tr>
+            <tr>
+                <td><strong>Sensor Size</strong></td>
+                <td>Compact (classified)</td>
+                <td>10.8 x 8.5 cm</td>
+                <td>12 x 12 x 12 cm</td>
+                <td>Similar to UV sensors</td>
+                <td>Naval installation</td>
+                <td>Wing-pod mount</td>
+                <td>Compact</td>
+            </tr>
+            <tr>
+                <td><strong>Sensor Weight</strong></td>
+                <td>Classified</td>
+                <td>~2.8 kg/sensor (16.7 kg / 6)</td>
+                <td>~2 kg per sensor</td>
+                <td>Similar to UV sensors</td>
+                <td>Naval (classified)</td>
+                <td>Pod-integrated</td>
+                <td>Classified</td>
+            </tr>
+            <tr>
+                <td><strong>ECU Weight</strong></td>
+                <td>Classified</td>
+                <td>8.5 kg</td>
+                <td>CM Signal Processor</td>
+                <td>Central processing unit</td>
+                <td>Integrated</td>
+                <td>Integrated DSP per sensor</td>
+                <td>Classified</td>
+            </tr>
+            <tr>
+                <td><strong>Cooling</strong></td>
+                <td class="perf-med">Required (cooled MWIR)</td>
+                <td>Uncooled (UV), Cooled (2CAWS)</td>
+                <td class="perf-high">Not required (UV)</td>
+                <td class="perf-med">Required (cooled IR)</td>
+                <td class="perf-med">Central close-cycle cooling</td>
+                <td>Image intensifier</td>
+                <td class="perf-high">Not required (UV)</td>
+            </tr>
+            <tr>
+                <td><strong>NETD / Sensitivity</strong></td>
+                <td>~8-25 mK (MWIR cooled)</td>
+                <td>N/A (UV mode)</td>
+                <td>Solar-blind UV optimized</td>
+                <td>~8-25 mK (MWIR)</td>
+                <td>~8-25 mK (InSb cooled)</td>
+                <td>Photon-counting level</td>
+                <td>UV threshold</td>
+            </tr>
+            <tr>
+                <td><strong>Frame Rate</strong></td>
+                <td class="perf-high">Exceptionally high</td>
+                <td>High</td>
+                <td>High</td>
+                <td>High</td>
+                <td>Continuous stare</td>
+                <td>Real-time DSP</td>
+                <td>Standard</td>
+            </tr>
+            <tr>
+                <td><strong>MTBF</strong></td>
+                <td>Field-proven</td>
+                <td class="perf-high">4M+ combat hours</td>
+                <td class="perf-high">9,600+ hrs/sensor</td>
+                <td>NATO Vidsel proven</td>
+                <td>20+ countries operational</td>
+                <td>Operational</td>
+                <td>Field-proven Turkey</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="highlight">
+        <h4>Key Physical Performance Notes</h4>
+        <ul>
+            <li><strong>MWIR Cooled Detectors (PAWS-2, Elix-IR, Sea Spotter):</strong> Typical InSb or MCT FPA, operating at 77-85K, NETD 8-25 mK, pixel pitch 15 um, format 640x512 and above. Require cryo-cooling but provide superior sensitivity and longer detection range.</li>
+            <li><strong>UV Solar-Blind (MILDS, Aselsan):</strong> No cooling needed (major SWaP advantage), but limited to detecting UV emission during motor burn phase only. Lower sensitivity to low-signature threats.</li>
+            <li><strong>2-Color/Multi-Spectral (BAE 2CAWS):</strong> Combines two IR bands for enhanced discrimination. Higher complexity but dramatically reduces false alarms through spectral ratio analysis.</li>
+            <li><strong>Staring vs Scanning:</strong> Sea Spotter's fully staring architecture (no mechanical scanning) enables continuous 360 monitoring with ML-enhanced target acquisition, achieving ~1 false alarm per 24 hours.</li>
+        </ul>
+    </div>
+    <span class="slide-num">14</span>
+</div>
+
+<!-- SLIDE 15: SWOT Analysis -->
+<div class="slide">
+    <h2>SWOT Analysis - MWS Market Entry</h2>
+
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="card" style="border-color: rgba(0, 200, 100, 0.5);">
+            <h3 style="color: #00cc66;">S - Strengths (Opportunities for New Entrant)</h3>
+            <ul>
+                <li><strong>Growing market ($7.7B to $12.5B)</strong> - sustained 4.9% CAGR creates room for new players</li>
+                <li><strong>Technology transition point</strong> - UV to MWIR shift means incumbents' installed base advantage is less relevant</li>
+                <li><strong>AI/ML integration is new</strong> - no entrenched leader in ML-based threat processing yet</li>
+                <li><strong>Rafael's unique position</strong> - Sea Spotter IR staring tech + Sky Shield EW + national EW expertise = ready-made building blocks</li>
+                <li><strong>Naval domain underserved</strong> - Sea Spotter is one of very few naval EO-MWS, low competition</li>
+                <li><strong>EO/IR expertise</strong> - Litening (1,900+ pods) and Toplite (20+ countries) prove world-class sensor capability</li>
+                <li><strong>Israel defense ecosystem</strong> - access to SCD/Elop IR detectors, proven supply chain</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(255, 100, 50, 0.5);">
+            <h3 style="color: #ff6644;">W - Weaknesses (Challenges)</h3>
+            <ul>
+                <li><strong>No dedicated airborne MWS product</strong> - Rafael does not currently offer a direct MWS competitor to PAWS/CMWS</li>
+                <li><strong>Late market entry</strong> - BAE (3,000+ CMWS), Elbit (PAWS on F-16), Hensoldt (NATO standard) have decades of installed base</li>
+                <li><strong>Certification burden</strong> - airborne MWS requires extensive flight testing, DO-178/DO-254 certification</li>
+                <li><strong>Customer switching costs</strong> - militaries with CMWS/MILDS have trained crews, spares, integration</li>
+                <li><strong>DIRCM integration gap</strong> - no fiber-laser DIRCM product (Elbit has MUSIC family, BAE has ATIRCM)</li>
+                <li><strong>Cooling requirement</strong> - MWIR sensors need cryo-cooling, adding SWaP and maintenance burden vs UV</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(0, 170, 255, 0.5);">
+            <h3 style="color: #00aaff;">O - Opportunities</h3>
+            <ul>
+                <li><strong>Retrofit market</strong> - massive opportunity to upgrade UV systems to MWIR on existing platforms</li>
+                <li><strong>UAV/UAS market</strong> - "blue ocean" with almost no dedicated MWS solutions for drones</li>
+                <li><strong>Naval expansion</strong> - Sea Spotter architecture can be adapted for ship-based missile warning</li>
+                <li><strong>Asia-Pacific growth (CAGR 8.4%)</strong> - emerging markets less locked into incumbents</li>
+                <li><strong>Multi-mission sensor</strong> - MWS + HFI + SA from single sensor is next generation requirement</li>
+                <li><strong>AI/ML threat processing</strong> - Sea Spotter's ML achieving 1/24hr FAR is transferable to airborne</li>
+                <li><strong>German partnership</strong> - Hensoldt collaboration (Sky Shield) opens European market access</li>
+                <li><strong>Integrated EW suite</strong> - combine MWS + EW (Sky Shield) + towed decoy (X-Guard) = unique full-spectrum offering</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-color: rgba(255, 170, 0, 0.5);">
+            <h3 style="color: #ffaa00;">T - Threats</h3>
+            <ul>
+                <li><strong>Elbit dominance in IR MWS</strong> - PAWS-2 HR (5MP+) sets new bar; first-mover advantage in MWIR imaging</li>
+                <li><strong>BAE Systems incumbency</strong> - 3,000+ CMWS with $137M new FMS contracts; deeply embedded in US military</li>
+                <li><strong>DAS trend may bypass standalone MWS</strong> - F-35 DAS architecture could make separate MWS obsolete on 5th gen</li>
+                <li><strong>Budget constraints</strong> - post-COVID defense budgets may delay new MWS procurements</li>
+                <li><strong>Export restrictions</strong> - Israeli defense export controls may limit market access to some countries</li>
+                <li><strong>3rd gen MANPADS evolution</strong> - advanced seekers with UV/IR ECCM challenge all current MWS approaches</li>
+                <li><strong>Aselsan/Turkey rising</strong> - low-cost Turkish alternatives gaining traction in price-sensitive markets</li>
+            </ul>
+        </div>
+    </div>
+    <span class="slide-num">15</span>
+</div>
+
+<!-- SLIDE 16: Opportunities & Gaps -->
+<div class="slide">
+    <h2>Opportunities & Market Gaps</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Identified Gaps</h3>
+
+            <div class="warning" style="margin-bottom: 15px;">
+                <h4>1. Standalone MWS for Light Platforms</h4>
+                <p>No compact, affordable EO-MWS for UAVs
+                and small vessels. Most systems designed for manned aircraft.</p>
+            </div>
+
+            <div class="warning" style="margin-bottom: 15px;">
+                <h4>2. Limited Naval Integration</h4>
+                <p>Naval EO-MWS systems lag significantly behind the airborne domain.
+                Rafael's Sea Spotter is one of few solutions. Major opportunity.</p>
+            </div>
+
+            <div class="warning" style="margin-bottom: 15px;">
+                <h4>3. Open Architecture</h4>
+                <p>Most existing systems are proprietary. Growing market of armed forces
+                seeking modular, open-integration solutions.</p>
+            </div>
+
+            <div class="warning">
+                <h4>4. Counter-Advanced MANPADS</h4>
+                <p>3rd gen MANPADS with 2-color seekers and ECCM challenge legacy MWS.
+                Need for multi-spectral detection + ML to maintain detection edge.</p>
+            </div>
+        </div>
+
+        <div>
+            <h3>Business Opportunities</h3>
+
+            <div class="opportunity" style="margin-bottom: 15px;">
+                <h4>1. Retrofit Market</h4>
+                <p>Many armed forces seeking to upgrade legacy UV systems to IR/Multi-Spectral
+                on existing platforms. Massive upgrade market.</p>
+            </div>
+
+            <div class="opportunity" style="margin-bottom: 15px;">
+                <h4>2. Integrated MWS + Soft Kill</h4>
+                <p>"One-box solution" trend - MWS + DIRCM +
+                CM Control in one unit. Saves SWaP and integration effort.</p>
+            </div>
+
+            <div class="opportunity" style="margin-bottom: 15px;">
+                <h4>3. AI-Driven Threat Libraries</h4>
+                <p>Continuous threat library update service based on AI.
+                SaaS-like business model for operational software updates.</p>
+            </div>
+
+            <div class="opportunity">
+                <h4>4. Naval EO Warning Expansion</h4>
+                <p>Rafael's Sea Spotter architecture could be adapted/expanded.
+                Growing naval threats (ASM, drones, small boats) drive demand.</p>
+            </div>
+        </div>
+    </div>
+    <span class="slide-num">16</span>
+</div>
+
+<!-- SLIDE 17: Summary -->
+<div class="slide">
+    <h2>Summary & Recommendations</h2>
+
+    <div class="highlight" style="font-size: 1.1em; margin-bottom: 30px;">
+        <strong>Bottom Line:</strong> The MWS market is at a technological inflection point.
+        The transition from simple UV to MWIR imaging multi-spectral systems with AI
+        creates a significant window of opportunity. Market of $7.7B growing to $12.5B in the next decade.
+    </div>
+
+    <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card" style="border-color: rgba(0, 200, 100, 0.4);">
+            <h3 style="color: #00cc66;">Technology Leaders</h3>
+            <ul>
+                <li><strong>Elbit PAWS-2 HR</strong> - Highest resolution (MWIR 5MP+)</li>
+                <li><strong>BAE 2CAWS</strong> - ML + Multi-Spectral</li>
+                <li><strong>Thales Elix-IR</strong> - Multi-function from single sensor</li>
+                <li><strong>Rafael Sea Spotter</strong> - Best naval IRST (1/24hr FAR)</li>
+            </ul>
+        </div>
+        <div class="card" style="border-color: rgba(255, 170, 0, 0.4);">
+            <h3 style="color: #ffaa00;">Market Leaders (Installed Base)</h3>
+            <ul>
+                <li><strong>BAE CMWS</strong> - 3,000+ systems, US dominant</li>
+                <li><strong>Hensoldt MILDS</strong> - NATO helicopter standard</li>
+                <li><strong>Elbit MUSIC</strong> - Civil aviation leader</li>
+                <li><strong>Rafael Litening</strong> - 1,900+ EO pods, 27 AFs</li>
+            </ul>
+        </div>
+        <div class="card" style="border-color: rgba(100, 100, 255, 0.4);">
+            <h3 style="color: #8888ff;">Growing Players</h3>
+            <ul>
+                <li><strong>Aselsan</strong> - Turkish independence + export</li>
+                <li><strong>Boeing</strong> - Space-based EO/IR sensors</li>
+                <li><strong>Asian players</strong> - India, South Korea</li>
+                <li><strong>Rafael</strong> - Sky Shield + Sea Spotter expansion</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Recommendations</h3>
+    <ol>
+        <li><strong>MWIR Imaging</strong> is the leading technology direction - any new development must be based on MWIR or Multi-Spectral</li>
+        <li><strong>AI/ML integration</strong> is no longer "nice to have" but a baseline requirement - BAE, Elbit, and Rafael lead here</li>
+        <li><strong>Multi-Mission</strong> (MWS + HFI + SA) from single sensor differentiates from competitors</li>
+        <li><strong>Retrofit market</strong> is a major opportunity - upgrading existing UV systems to IR</li>
+        <li><strong>UAV market</strong> is "blue ocean" - few dedicated MWS solutions for unmanned platforms</li>
+        <li><strong>Naval domain</strong> - Rafael's Sea Spotter architecture provides unique advantage; expand to airborne</li>
+    </ol>
+
+    <div style="text-align: center; margin-top: 40px; color: #556688;">
+        <p>Sources: BAE Systems, Elbit Systems, Rafael, Hensoldt, Thales, Saab, Aselsan, MarketsandMarkets, Fortune Business Insights</p>
+        <p style="margin-top: 10px;">March 2026 | Business Analysis Report</p>
+    </div>
+    <span class="slide-num">17</span>
+</div>
+
+</body>
+</html>
